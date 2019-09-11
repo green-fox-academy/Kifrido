@@ -1,0 +1,49 @@
+#introduction{
+    text-align: left;
+    font-family: consolas;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+hr{
+    display: block;
+    margin: 25px auto;
+    border-style: dashed;
+    border-width: 1,5px;
+    width: 16px; 
+}
+
+#definitions{
+    text-align: center;
+    font-family: consolas;    
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+body{
+    background: url(assets/background.png);
+    line-height: 1.5;
+    overflow: scroll;
+    font-size: 30px;
+    }
+
+.header{
+        padding-left: 10%;
+        background-color: #333333;
+        padding-top: 25px;
+        margin-bottom: 32px;
+        }
+
+.header .links{
+    float: right;
+    font-size: 24px;
+    margin: 1em 10% 1em 0;
+    word-spacing: 40px;
+}
+
+.icon{
+        float: left;
+    }
+h2, a{
+    color: #ff0099;
+}
