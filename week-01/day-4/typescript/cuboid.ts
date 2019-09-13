@@ -9,11 +9,5 @@
 const a: number = 10;
 const b: number = 10;
 const c: number = 10;
-console.log('Surface Area = ' + (2 * (a * b + b * c + c * a)));
-console.log('Volume = ' + a * b * c);
-
-/*
-let pi: number = 3.141592;
-console.log(pi);
-
-*/
+console.log('Surface Area: ' + (2 * (a * b + b * c + c * a)));
+console.log('Volume: ' + a * b * c);
