@@ -1,3 +1,5 @@
+'use strict';
+
 let listOfNames: string[] = [];
     console.log(listOfNames.length);
 
