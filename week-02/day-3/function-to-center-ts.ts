@@ -26,18 +26,18 @@ for (let x: number = 0; x <= canvas.width; x += 20){
     drawLine(x, yStart);
 }
 
-for (let y: number = 0; y <= canvas.height; y += 20){
+for (let y: number = 20; y <= canvas.height; y += 20){
     drawLine(xStart, y);
 }
 
 let x2: number = canvas.width;
 let y2: number = canvas.height;
 
-for (let x: number = 0; x <= canvas.width; x += 20){
+for (let x: number = 20; x <= canvas.width; x += 20){
     
     drawLine(x, canvas.height);
 }
 
-for (let y: number = 0; y <= canvas.height; y += 20){
+for (let y: number = 20; y <= canvas.height - 20; y += 20){
     drawLine(canvas.width, y);
 }
