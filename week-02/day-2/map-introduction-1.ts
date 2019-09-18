@@ -15,8 +15,15 @@ map[67] = "C";
 
 console.log(Object.keys(map));
 
-let values = Object.keys(map).map(key => map[key]);
+let values: string[] = Object.keys(map).map(key => map[key]);
 
 console.log(values);
 
 map[68] = "D";
+
+console.log(Object.keys(map).length);
+
+let valueOf99: string[] = Object.keys(map[99]);
+console.log(valueOf99);
+
+
