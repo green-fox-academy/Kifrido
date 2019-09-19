@@ -19,7 +19,7 @@ function starryNight(position1: number, position2: number, colors: string){
        ctx.fillRect(position1, position2, 5, 5);
     }
 
-for(let i = 0; i < Math.random() * 200; i++){
+for(let i: number = 0; i < Math.random() * 200; i++){
     let colors: number = Math.floor(Math.random() * 255);
     starryNight(Math.random() * canvas.width, Math.random() * canvas.height, `rgb(${colors},${colors},${colors})`);
 }
