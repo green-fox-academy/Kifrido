@@ -6,7 +6,8 @@ const ctx = canvas.getContext('2d');
 // DO NOT TOUCH THE CODE ABOVE THIS LINE
 //Divide the canvas into 4/16/64 equal parts and repeat the line play pattern in each quarter
 
-function linePlay(moveX: number, moveY: number, lineX: number, lineY: number){
+function linePlay(moveX: number, moveY: number, lineX: number, lineY: number, color: string){
+    ctx.strokeStyle =color;
     ctx.beginPath();
     ctx.moveTo(moveX, moveY);
     ctx.lineTo(lineX, lineY);
@@ -22,8 +23,8 @@ let move: number = canvas.width / 20;
 for (let i: number = 1; i <= canvas.height; i++){ 
     linePlay(moveX + move, moveY, lineX, lineY);
     moveX += move;
-    lineY -= move;
-*/
+    lineY -= move;*/
+
 
 
 let moveX: number = 0;
@@ -33,10 +34,9 @@ let lineY: number = canvas.height;
 let move: number = canvas.width / 20;
 
 for (let i: number = 1; i <= canvas.height; i++){ 
-    linePlay(moveX, moveY, lineX, lineY);
+    linePlay(moveX, moveY, lineX, lineY, '#87E18D');
     moveY += move;
     lineX += move;
-    ctx.strokeStyle = '#87E18D';
 }
 
 
@@ -45,9 +45,7 @@ let moveY2: number = 0;
 let lineX2: number = canvas.width;
 
 for (let i: number = 1; i <= canvas.height; i++){ 
-    linePlay(moveX2, moveY2, lineX2, lineY);
+    linePlay(moveX2, moveY2, lineX2, lineY, '#BF69F5');
     lineY -= move;
-    moveX2 -= move;
-    ctx.strokeStyle = '#BF69F5';
-   
+    moveX2 -= move; 
 }
