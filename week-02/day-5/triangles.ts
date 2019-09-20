@@ -14,7 +14,7 @@ function drawLine(moveX: number, moveY: number, lineX: number, lineY: number) {
 
 function drawTriangle(startX: number, startY: number, length: number) {
     let endX: number = startX + length;
-    let endY: number = canvas.height;
+    let endY: number = startY;
 
 
     drawLine(startX, startY, endX, endY); // first line 
@@ -36,13 +36,17 @@ function drawTriangle(startX: number, startY: number, length: number) {
 
 let startX: number = 0;
 let startY: number = canvas.height;
-let length2: number = 20;
+let side: number = 20;
+let triangleCounter: number = canvas.width / side;
+let rowCounter: number = canvas.height / (side * (Math.sqrt(3) / 2));
+let counter: number = 0;
 
-for (let i: number = 1; i <= canvas.width / length2; i++){
-  drawTriangle(startX, startY, length2);
-  startX += length2;
-} // added first row
-
-/**/for (let j: number = 1; j <=canvas.width / length2; j--){
-
+for (let j: number = rowCounter; j > 0; j--){
+    startX = counter * (side / 2);
+        for (let i: number = triangleCounter - counter; i > 0; i--){
+            drawTriangle(startX, startY, side);
+            startX += side;
+        }
+        startY -= side * (Math.sqrt(3) / 2);
+        counter += 1;
 }
