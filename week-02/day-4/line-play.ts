@@ -14,19 +14,6 @@ function linePlay(moveX: number, moveY: number, lineX: number, lineY: number, co
     ctx.stroke();
 }
 
-/*let moveX: number = 0;
-let moveY: number = 0;
-let lineX: number = 0;
-let lineY: number = canvas.height;
-let move: number = canvas.width / 20;
-
-for (let i: number = 1; i <= canvas.height; i++){ 
-    linePlay(moveX + move, moveY, lineX, lineY);
-    moveX += move;
-    lineY -= move;*/
-
-
-
 let moveX: number = 0;
 let moveY: number = 0;
 let lineX: number = 0;
