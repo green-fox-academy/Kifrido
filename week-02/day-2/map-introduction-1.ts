@@ -23,7 +23,15 @@ map[68] = "D";
 
 console.log(Object.keys(map).length);
 
-let valueOf99: string[] = Object.keys(map[99]);
+let valueOf99: string[] = Object.values(map[99]);
 console.log(valueOf99);
 
+delete map[97];
 
+console.log(map.hasOwnProperty('100'));
+
+map = {
+
+};
+
+console.log(Object.keys(map));
