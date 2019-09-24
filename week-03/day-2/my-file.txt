@@ -1,3 +1,0 @@
-John Doe,30,american
-Marie,25,german
-Whatever,20,english
