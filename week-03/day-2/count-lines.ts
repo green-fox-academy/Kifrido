@@ -24,5 +24,5 @@ function fileNameAsString(fileName: string): number{
     
 }
 
-console.log('The number of lines in test.txt: ' + fileNameAsString('tesst.txt'));
-console.log('The number of lines in test2.txt: ' + fileNameAsString('test2.txt'));
+console.log(fileNameAsString('test.txt'));
+console.log(fileNameAsString('tesst.txt'));

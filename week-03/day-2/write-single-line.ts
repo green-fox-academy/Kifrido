@@ -1,8 +1,7 @@
 'use strict';
 
-import { fileURLToPath } from "url";
-
 const fs = require('fs');
+
 // Write a function that is able to manipulate a file
 // By writing your name into it as a single line
 // The file should be named "my-file.txt"
