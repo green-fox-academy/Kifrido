@@ -11,7 +11,7 @@ let content: string = '';
 
 try {
 
-content = fs.readFileSync('my-file.txt', 'utf8');
+content = fs.readFileSync('my-fille.txt', 'utf8');
 
 }
 catch(error) {

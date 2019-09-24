@@ -5,22 +5,24 @@
 // It should return zero if it can't open the file, and
 // should not raise any error.
 
-const fs = require('fs');
 
-let content: string = '';
 
-try {
-content = fs.readFileSync('tesst.txt', 'utf8');
+function fileNameAsString(fileName: string): number{
+    const fs = require('fs');
+
+    let content: string = '';
+    
+    try {
+    content = fs.readFileSync(fileName, 'utf8');
+    }
+    catch(error) {
+        console.log('0');
+        process.exit();
+    }
+    let numberOfLines = (content.split("\n")).length;
+    return numberOfLines;
+    
 }
-catch(error) {
-    console.log('0');
-    process.exit();
-}
-let numberOfLines = (content.split("\n")).length;
 
-
-function fileNameAsString(numberOfLines: number){
- console.log(numberOfLines);
-}
-
-fileNameAsString(numberOfLines);
+console.log('The number of lines in test.txt: ' + fileNameAsString('tesst.txt'));
+console.log('The number of lines in test2.txt: ' + fileNameAsString('test2.txt'));
