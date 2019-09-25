@@ -42,11 +42,11 @@ class Animal{
 
 let lion = new Animal(50, 50)
 
-    console.log(lion.hunger);
-    console.log(lion.thirst);
+    console.log('hunger of the lion: ' + lion.hunger);
+    console.log('thirst of the lion: ' + lion.thirst);
     
     lion.play();
     lion.drink();
 
-    console.log(lion.hunger);
-    console.log(lion.thirst);
+    console.log('hunger of the lion after playing: ' + lion.hunger);
+    console.log('thirst of the lion after playing and drinking: ' + lion.thirst);
