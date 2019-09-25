@@ -25,7 +25,6 @@ class Animal{
         } else {
             this._thirst = 50;
         }
-        
     }
 
 
@@ -40,23 +39,26 @@ class Animal{
         this._thirst += 1;
     }
 
-   
-    public get hunger(): number{
+    public animalBeing(): string {
+        return `has the hunger: ${this._hunger} and the thirst ${this._thirst}`;
+    }
+    /*public get hunger(): number{
         return this._hunger;
     }
 
     public get thirst(): number{
         return this._thirst;
-    }
+    }*/
 }
 
 let lion = new Animal();
+let monkey = new Animal();
 
-    console.log('hunger of the lion: ' + lion.hunger);
-    console.log('thirst of the lion: ' + lion.thirst);
-    
-    lion.play();
-    lion.drink();
+console.log('The Lion ' + lion.animalBeing());
+lion.play();
+console.log('After playing the Lion ' + lion.animalBeing());
 
-    console.log('hunger of the lion after playing: ' + lion.hunger);
-    console.log('thirst of the lion after playing and drinking: ' + lion.thirst);
+console.log('The monkey ' + monkey.animalBeing());
+monkey.eat();
+monkey.drink();
+console.log('After eating and drinking the monkey ' + monkey.animalBeing());
