@@ -10,20 +10,15 @@ const fs = require('fs');
 
 function writeSingleLine(fileName: string): void {
     let fileContent: string = "Krisztina Nagy";
-    let targetFile: string = 'my-file.txt';
+    let message: string = 'Unable to write file: ' + fileName;
     try {
-    if(targetFile != fileName){
-        throw 'error';
-        } else {
-        fs.writeFileSync(targetFile, fileContent, 'utf-8');
-        }
+        //throw(Error); 
+        fs.writeFileSync(fileName, fileContent, 'utf-8');
     }
-    catch(error) {
-        console.log('Unable to write file: my-file.txt');
+    catch(Error) {
+        console.log(message);
     }
+}
 
-    }
-
-    writeSingleLine('my-file.txt');
-    writeSingleLine('my-fille.txt');
+writeSingleLine('my-file.txt');
 
