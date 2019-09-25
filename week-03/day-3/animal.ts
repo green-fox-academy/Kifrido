@@ -13,9 +13,19 @@ class Animal{
     private _thirst: number;
 
 
-    constructor(hunger: number, thirst: number) {
-        this._hunger = hunger;
-        this._thirst = thirst;
+    constructor(hunger?: number, thirst?: number) {
+        if(hunger){
+            this._hunger= hunger;
+        } else {
+            this._hunger = 50;
+        }
+        
+        if (thirst){
+            this._thirst= thirst;
+        } else {
+            this._thirst = 50;
+        }
+        
     }
 
 
@@ -40,7 +50,7 @@ class Animal{
     }
 }
 
-let lion = new Animal(50, 50)
+let lion = new Animal();
 
     console.log('hunger of the lion: ' + lion.hunger);
     console.log('thirst of the lion: ' + lion.thirst);
