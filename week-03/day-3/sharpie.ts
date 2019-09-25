@@ -26,7 +26,7 @@ class Sharpie {
         this._inkAmount -= 1;
     }
 
-    public get inkAmount(){
+    public get inkAmount(): number{
         return this._inkAmount;
     }
 }
