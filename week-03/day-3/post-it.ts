@@ -10,14 +10,14 @@
 //a yellow with green text: "Superb!"
 
 class PostIt{
-    backgroundColor: string;
-    textOnIt: string;
-    textColor: string;
+    private _backgroundColor: string;
+    private _textOnIt: string;
+    private _textColor: string;
 
     constructor(backgroundColor: string, textOnIt: string, textColor: string){
-        this.backgroundColor= backgroundColor;
-        this.textOnIt = textOnIt;
-        this.textColor = textColor;
+        this._backgroundColor= backgroundColor;
+        this._textOnIt = textOnIt;
+        this._textColor = textColor;
     }
 }
 
