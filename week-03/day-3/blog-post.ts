@@ -16,16 +16,16 @@
 //organizer profile thing.
 
 class BlogPost{
-    authorname: string;
-    title: string;
-    text: string;
-    publicationDate: string;
+    private _authorname: string;
+    private _title: string;
+    private _text: string;
+    private _publicationDate: string;
 
     constructor(authorname: string, title: string, text: string, publicationDate: string){
-        this.authorname = authorname;
-        this.title = title;
-        this.text = text;
-        this.publicationDate = publicationDate;
+        this._authorname = authorname;
+        this._title = title;
+        this._text = text;
+        this._publicationDate = publicationDate;
     }
 }
 
