@@ -9,37 +9,29 @@
 //sex
 //you can use just variables, or lists and/or maps
 
-class appleTree {
-    type: 'apple';
-    leafColor: 'green';
-    age: 100;
-    sex: 'male';
+class Tree {
+    private _type: string;
+    private _leafColor: string;
+    private _age: number;
+    private _sex: string;
+
+    constructor(type: string, leafColor: string, age: number, sex: string){
+        this._type = type;
+        this._leafColor = leafColor;
+        this._age = age;
+        this._sex = sex;
+    }
+    
+    public get age(): number{
+        return this._age
+    }
+   
 }
 
-class PalmTree {
-    type: 'palm';
-    leafColor: 'green';
-    age: 20;
-    sex: 'male';
-}
+let firstTree = new Tree('apple', 'green', 100, 'male');
+let secondTree = new Tree('oak', 'brown', 20, 'female');
+let thirdTree = new Tree('palm', 'green', 10, 'male');
+let fourthTree = new Tree('nut', 'yellow', 1, 'female');
+let fifthTree = new Tree('blackcherry', 'red', 100, 'male');
 
-class nutTree {
-    type: 'nut';
-    leafColor: 'brown';
-    age: 55;
-    sex: 'female';
-}
-
-class oakTree {
-    type: 'oak';
-    leafColor: 'green';
-    age: 120;
-    sex: 'male';
-}
-
-class blackCherryTree {
-    type: 'blackcherry';
-    leafColor: 'green';
-    age: 80;
-    sex: 'female';
-}
+console.log(secondTree.age);
