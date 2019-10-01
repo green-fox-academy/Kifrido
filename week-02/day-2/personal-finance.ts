@@ -46,22 +46,23 @@ function getSum(array){
     return values;
 }
 
+
 //let sumAll = getSum(myExpenses);
 
 //console.log('We spent ' + sumAll);
 
-//let arr = getSum(myExpenses);
+let arr = getSum(myExpenses);
 /*console.log('The sum of the elements is ' + arr[0]);
 console.log('Max ' + arr[1]);
 console.log('Min ' + arr[2]);
 console.log('Average ' + arr[3]);*/
 
-/*let text = ['Sum ', 'Max ', 'Min ', 'Average '];
+let text = ['Sum ', 'Max ', 'Min ', 'Average '];
 
 for (let j = 0; j < 4; j++){
     console.log(text[j], arr[j]);
-}*/
+}
 
-
-console.log(Math.max(...myExpenses));
-console.log(Math.min(...myExpenses));
+//other method for min and max:
+//console.log(Math.max(...myExpenses));
+//console.log(Math.min(...myExpenses));
