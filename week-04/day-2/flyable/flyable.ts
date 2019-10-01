@@ -1,6 +1,6 @@
 'use strict';
 
-interface Flyable{
+export interface Flyable{
     fly(): void;
     land(): void;
     takeOff(): void;
