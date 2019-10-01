@@ -16,7 +16,7 @@ export class Reservation implements Reservationy{
 
     getCodeBooking(): string{
             let randomItem2: string [] = [];
-            for(let j = 0; j < 8; j++){
+            for(let j: number = 0; j < 8; j++){
                 randomItem2.push(Reservation._codeList[Math.floor(Math.random() * Reservation._codeList.length)]);
             }
             return randomItem2.join("");
