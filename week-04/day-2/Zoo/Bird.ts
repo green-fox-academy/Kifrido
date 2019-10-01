@@ -1,6 +1,7 @@
 'use strict'
 
 import { Animal } from './animal'
+import { Flyable } from '../flyable/flyable'
 
 export class Bird extends Animal implements Flyable{
 
@@ -14,4 +15,5 @@ export class Bird extends Animal implements Flyable{
 
     fly(): void{};
     land(): void{};
+    takeOff(): void{};
 }
