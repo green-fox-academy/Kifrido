@@ -6,7 +6,7 @@ import { Apple} from "./apple";
 test("test getApple method", t => {
     let greenApple = new Apple();
     let actual: string = greenApple.getApple();
-    let expected: string = 'banana';
+    let expected: string = 'apple';
 
     t.equal(actual, expected);
     t.end();
