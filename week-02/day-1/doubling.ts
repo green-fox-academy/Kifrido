@@ -4,11 +4,15 @@
 // -  Create a function called `doubling` that doubles it's input parameter and returns with an integer
 // -  Log the result of `doubling(baseNum)` to the console
 
+let baseNum: number = 123;
+/*function doubling(baseNum: number){
+  return baseNum * 2;
+}
 
-let baseNum: number = doubling(123);
+console.log(doubling(baseNum));*/
 
 
-function doubling(a) {
+function doubling(a: number) {
   return a * 2;            
 }
-console.log(baseNum);
+console.log(doubling(baseNum));

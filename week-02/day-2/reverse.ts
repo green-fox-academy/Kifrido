@@ -6,10 +6,7 @@ let reversed: string = `.eslaf eb t'ndluow ecnetnes siht ,dehctiws erew eslaf dn
 
 
 
-const reverse = str => [...str].reverse().join(''); 
+const reverse = myString => [...myString].reverse().join(''); 
   
-console.log(reverse(reversed)) 
-
-
-export = reverse;
+console.log(reverse(reversed))
 

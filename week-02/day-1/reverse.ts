@@ -9,12 +9,11 @@
 
 
 
-/* let numList: number[] = [3, 4, 5, 6, 7];
+/*let numList: number[] = [3, 4, 5, 6, 7];
 numList.reverse();
-console.log(numList); */
+console.log(numList);*/
 
 let numList: number[] = [3, 4, 5, 6, 7]
-
 
 for (let i = 0; i <= (numList.length / 2); i++) {
         let tempArray = numList[i];

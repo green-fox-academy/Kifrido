@@ -10,5 +10,6 @@ Do we have bananas on the list?*/
 
 let shoppingList: string[] = ['eggs', 'milk', 'fish', 'apples', 'bread', 'chicken'];
 
-console.log(shoppingList.includes('milk'));
-console.log(shoppingList.includes('bananas'));
+
+let includes = (shoppingList.includes('milk') ? console.log('yes') : console.log('no'));
+let includes2 = (shoppingList.includes('bananas') ? console.log('yes') : console.log('no'));

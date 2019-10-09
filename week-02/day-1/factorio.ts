@@ -6,7 +6,7 @@
 
 let num: number = 5;
 
-function factorio(num) { 
+function factorio(num: number) : number { 
     let result = 1;
     for (let i= 1; i<= num; i++){
         result *= i;

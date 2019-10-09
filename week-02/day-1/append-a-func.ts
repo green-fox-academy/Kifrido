@@ -5,11 +5,11 @@
 //    appends an 'a' character to its end and returns with a string
 // -  Print the result of `appendAFunc(typo)`
 
-let typo: string = ('Chinchill');
+let typo: string = "Chinchill";
 
-function appendAFunc(name: string): string {
-    let newName = typo + 'a';
-    return newName;
+function appendAFunc(typo: string): string{
+    typo = typo + "a";
+    return typo;
 }
-
 console.log(appendAFunc(typo));
+

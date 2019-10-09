@@ -4,7 +4,7 @@ const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
 
 // DO NOT TOUCH THE CODE ABOVE THIS LINE
-//Divide the canvas into 4/16/64 equal parts and repeat the line play pattern in each quarter
+
 
 function linePlay(moveX: number, moveY: number, lineX: number, lineY: number, color: string){
     ctx.strokeStyle =color;
