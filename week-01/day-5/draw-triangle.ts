@@ -11,14 +11,14 @@ let lineCount: number = 4;
 //
 // The triangle should have as many lines as lineCount is
 
-for (let i = 1; i <= lineCount; i++) {
-  let row = '';
+for (let i: number = 1; i <= lineCount; i++){
+  let row = "";
 
-  for (let j = 1; j <= i; j++) {
+
+  for(let j : number = 1; j <= i; j++){
     row += '*';
   }
-
- { console.log(row);
+  {
+    console.log(row);
+  }
 }
-}
-

@@ -17,30 +17,28 @@
 let lineCount: number = 6;
 
 let row1: string = "";
-for(let i=0; i<lineCount; i++){
+for(let i: number = 0; i < lineCount; i++){
     row1 += "%";
 }
 console.log(row1);
 
 let sp: string = "";
-for (let j=0; j<lineCount - 3; j++) {
+for (let j: number = 0; j < lineCount - 3; j++) {
     sp += " ";
 }
-let row2 = "%%" + sp + "%";
+let row2: string = "%%" + sp + "%";
 console.log(row2);
-
-
 
 let row3: string = "";
 let sp1: string = "";
 let sp2: string = "";
-for(let k=0; k<lineCount - 4; k++){
+for(let k: number = 0; k < lineCount - 4; k++){
     sp1 = "";
-    for(let n=0; n<k+1; n++){
+    for(let n : number = 0; n < k + 1; n++){
         sp1 += " ";
     }
     sp2 = "";
-    for(let m=0; m<lineCount - 4 - k; m++){
+    for(let m : number = 0; m < lineCount - 4 - k; m++){
         sp2 += " ";
     }
     row3 = "%" + sp1 + "%" + sp2 + "%";
