@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    background-color: #ffd62f;
+    align-items: center;
+    height: 300px;
+    padding: 0;
+    justify-content: space-between;
+}
+  
+.item {
+    background-color: #B02aff;
+    width: 100px;
+    height: 100px;
+}
+
+li{
+list-style-type: none;
+}
