@@ -5,11 +5,28 @@ import { F16 } from './F16'
 import { Aircraft } from './aircraft'
 import { AircraftCarrier } from './aircraft-carrier'
 
+let missouri = new AircraftCarrier (2300, 5000);
 
-let f35 = new F35;
-let f16 = new F16;
-let aircraftCarrier = new AircraftCarrier(0);
-f35.getType();
-f35.isPriority();
-f16.fight();
-f16.getStatus();
+let iceMan = new F35 ();
+let coolerOne = new F35 ();
+let americanEagle = new F35
+let maverick = new F16 ();
+let goose = new F16 ();
+
+missouri.add(iceMan);
+missouri.add(coolerOne);
+missouri.add(americanEagle);
+missouri.add(maverick);
+missouri.add(goose);
+
+missouri.fill();
+
+missouri.getStatus();
+
+
+let konovalov = new AircraftCarrier (2600, 1600);
+
+missouri.fight(konovalov);
+
+konovalov.getStatus();
+

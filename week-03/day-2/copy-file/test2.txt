@@ -1,0 +1,3 @@
+whatever is written here
+gets copied
+in txt2

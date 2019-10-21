@@ -10,42 +10,51 @@ export class AircraftCarrier{
     protected _healthPoint: number;
     protected _totalDamage: number;
 
-    constructor(ammoStore: number = 0){
+    constructor(ammoStore: number = 0, healthPoint: number){
         this._ammoStore = ammoStore;
         this._listOfAircrafts = [];
+        this._healthPoint = healthPoint;
     }
 
     public add(aircraft: Aircraft): void{
-        aircraft = new Aircraft('F16');
-        this._listOfAircrafts.push(new Aircraft('F16'));
+        this._listOfAircrafts.push(aircraft);
     }
 
-    public fill(num: number, aircraft: Aircraft): void{
-        if(this._ammoStore >= num){
-            this._ammoStore -= num;
-            aircraft.refill(num);
-        }else if(this._ammoStore < num){
-            if(aircraft.isPriority == true){
-               aircraft.refill(num); 
+    public fill (): void {
+        try {
+            if (this._ammoStore == 0) {
+                throw 'error';
+            } else {
+                this._listOfAircrafts.forEach(element => {
+                    if (this._ammoStore > 0 && element.isPriority() == true) {
+                        this._ammoStore= element.refill(this._ammoStore);
+                    };
+                    if (this._ammoStore > 0 && element.isPriority() == false) {
+                        this._ammoStore = element.refill(this._ammoStore);
+                    };
+                })
             }
-        }else{
-            (this._ammoStore == 0){
-                console.log('There is no ammo in store');
-            }
+        } catch (error) {
+            console.log('The carrier has no ammo, no filling is possible!');
+        } 
+    }
+
+    public getStatus (): void {
+        if (this._healthPoint <= 0){
+            console.log(`It's dead, Jim :(`);
+        } else {
+            console.log(`HP ${this._healthPoint}, Ammo Storage: ${this._ammoStore}, Total Damage: ${this._listOfAircrafts.reduce(function (totalDamage, element) {
+                return totalDamage += element.fight()
+            }, 0)}`);
+            this._listOfAircrafts.forEach(element => element.getStatus());
         }
     }
 
-    public fight(carrier: AircraftCarrier, aircraft: Aircraft){
-        aircraft.fight();
-        this._healthPoint -= this._totalDamage;
-
-    }
-
-    public getStatus(aircraft: Aircraft): string{
-        if(this._healthPoint == 0){
-            return "It's dead Jim :("
-        }else{
-        return `HP: ${this._healthPoint}, Aircraft count: ${this._listOfAircrafts.length}, Ammo Storage: ${this._ammoStore}, Total damage: ${this._totalDamage} \n Aircrafts: ${aircraft.getStatus}`
-        }
+    public fight (anotherCarrier: AircraftCarrier): void {
+        anotherCarrier._healthPoint -= this._listOfAircrafts.reduce(function (totalDamage, element) {
+            return totalDamage += element.fight()
+        }, 0)
+        this._listOfAircrafts.forEach(element => element.useAmmo());
+        this.getStatus();
     }
 }

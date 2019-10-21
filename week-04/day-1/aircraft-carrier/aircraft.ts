@@ -2,39 +2,42 @@
 
 import { F35 } from './F35'
 import { F16 } from './F16'
+import { AircraftCarrier } from './aircraft-carrier'
 
-export class Aircraft{
+export abstract class Aircraft{
     protected _type: string;
     protected _currentAmmunition: number = 0;
     protected _maxAmmunition: number;
     protected _baseDamage: number;
-    protected _allDamage: number;
-
-    constructor(type: string){
-        this._type = type;
-    }
 
     public fight(): number{
-        let damageDealt = this._baseDamage * this._currentAmmunition;
+        let damageDealt = this.getDamageDealt();
         this._currentAmmunition = 0;
         return damageDealt;
     }
 
-    public refill(num: number): number{
-        this._currentAmmunition += num;
-        let remainingAmmunition = 0;
-        if(num > this._maxAmmunition || this._currentAmmunition == num){
-            remainingAmmunition += num;
-        }
-        return remainingAmmunition;
+    public getDamageDealt(): number{
+        return this._baseDamage * this._currentAmmunition;
     }
 
-    public getType(): string{
-        return this._type;
+    public refill (ammoLoaded: number): number {
+        if (ammoLoaded + this._currentAmmunition > this._maxAmmunition){
+            this._currentAmmunition = this._maxAmmunition;
+            return ammoLoaded - this._maxAmmunition;
+        } else if (ammoLoaded + this._currentAmmunition < this._maxAmmunition) {
+            this._currentAmmunition += ammoLoaded;
+            return 0;
+        };
+    };
+
+    public useAmmo (): void {
+        this._currentAmmunition = 0;
     }
 
-    public getStatus(): string{
-        return `Type ${this._type}, Ammo: ${this._currentAmmunition}, Base Damage: ${this._baseDamage}, All Damage: ${this._allDamage}`;
+    public abstract getType(): string;
+
+    public getStatus(){
+        console.log(`Type ${this.getType()}, Ammo: ${this._currentAmmunition}, Base Damage: ${this._baseDamage}, All Damage: ${this.getDamageDealt()}`);
     }
 
     public isPriority(): boolean{

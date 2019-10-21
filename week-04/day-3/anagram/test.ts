@@ -1,10 +1,10 @@
 'use strict';
 
 import * as test from 'tape';
-import { makeAnagrams } from "./Anagram";
+import { Anagram } from "./Anagram";
 
-test ('test makeAnagrams function', t =>{
-    let actual  = makeAnagrams('whatever', 'erevthaw');
+test ('test Anagram function', t =>{
+    let actual  = Anagram('whatever', 'erevthaw');
     let expected = true;
 
     t.equal(actual, expected);
