@@ -1,0 +1,52 @@
+.layout {
+    display: flex;
+    position: absolute;
+    left: 25%;
+    justify-self: flex-end;
+    align-self: center;
+    width: 700px;
+    height: 100vh;
+    padding: 0;
+    flex-wrap: wrap;
+}
+ 
+.purple{
+    display: flex;
+    background-color: #b02aff;
+    width: 700px;
+    height: 70px;
+    align-items: center;
+}
+
+.cyan{
+    background-color: #2aeaff;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.link1{
+    width: 95px;
+}
+
+.link2{
+    width: 75px;
+}
+
+.link3{
+    width: 80px; 
+}
+
+.yellow{
+    background-color: #ffd62a;
+    flex-grow: 2;
+    height: calc(100% - 70px);
+    width: 1px;
+}
+
+.green{
+    background-color: #51D400;
+    flex-grow: 1;
+    height: calc(100% - 70px);
+    width: 1px;
+}
+
