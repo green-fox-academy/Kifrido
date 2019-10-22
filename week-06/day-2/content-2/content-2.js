@@ -16,4 +16,5 @@ let placeHolder = document.querySelectorAll("li");
   //    2) change the <ul> element's background color to 'limegreen'
 //     - use css class to change the color instead of the style property
 
+document.getElementsByTagName('ul')[0].className = "limegreen"; 
 
