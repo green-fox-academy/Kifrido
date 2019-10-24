@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    width: 500px;
+    height: 500px;
+    align-content: space-between;
+}
+
+header{
+    background-color: #000;
+    color: #fff;
+    height: 50px;
+    width: 1px;
+}
+
+.name{
+    flex-grow: 3;
+}
+
+.price{
+    flex-grow: 1;
+}
+
+li{
+   list-style: none; 
+}

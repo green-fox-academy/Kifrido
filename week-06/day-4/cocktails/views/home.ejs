@@ -16,17 +16,23 @@
         <% }) %>
     </ul>
     <div class="container">
-        <ul class="cocktailList">
-            <% cocktails.forEach((item) => { %>
-            <li><%= item.name %></li>
-            <li><%= item.contains %></li>
-            <% }) %>
-        </ul>
-        <ul class="price">
-            <% cocktails.forEach((item) => { %>
-            <li><%= item.price %></li>
-            <% }) %>
-        </ul>
+        <div class="name">
+            <header class="name">Name</header>
+            <ul class="cocktailList">
+                <% cocktails.forEach((item) => { %>
+                <li><%= item.name %></li>
+                <li><%= item.contains %></li>
+                <% }) %>
+            </ul>
+        </div>
+        <div class="price">
+            <header class="p">Price</header>
+            <ul class="price">
+                <% cocktails.forEach((item) => { %>
+                <li><%= item.price %></li>
+                <% }) %>
+            </ul>
+        </div>
     </div>
 </body>
 
