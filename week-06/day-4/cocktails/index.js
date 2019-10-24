@@ -3,6 +3,7 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
+app.use('/static', express.static('static'));
 
 const cocktails = [
     { name: 'GIN FIZZ', price: 1520, contains: ['gin', 'sugar', 'lemon juice', 'soda'], isAlcoholic: true },

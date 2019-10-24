@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
     <meta charset="utf-8">
     <title><%= title %></title>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1><%= h1 %></h1>
-        <ul>
-            <% alcoholList.forEach((item) => { %>
-                <li><%= item %></li>
-            <% }) %>
-        </ul>
-        <ul>
+    <ul class="alcoholList">
+        <li>All</li>
+        <% alcoholList.forEach((item) => { %>
+        <li><%= item %></li>
+        <% }) %>
+    </ul>
+    <div class="container">
+        <ul class="cocktailList">
             <% cocktails.forEach((item) => { %>
-                <li><%= item.name %></li>
-                <li><%= item.price %></li>
-                <li><%= item.contains %></li>
+            <li><%= item.name %></li>
+            <li><%= item.contains %></li>
             <% }) %>
         </ul>
-  </body>
+        <ul class="price">
+            <% cocktails.forEach((item) => { %>
+            <li><%= item.price %></li>
+            <% }) %>
+        </ul>
+    </div>
+</body>
+
 </html>
