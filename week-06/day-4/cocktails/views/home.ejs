@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= h1 %></h1>
+        <ul>
+            <% alcoholList.forEach((item) => { %>
+                <li><%= item %></li>
+            <% }) %>
+        </ul>
+        <ul>
+            <% cocktails.forEach((item) => { %>
+                <li><%= item.name %></li>
+                <li><%= item.price %></li>
+                <li><%= item.contains %></li>
+            <% }) %>
+        </ul>
+  </body>
+</html>
