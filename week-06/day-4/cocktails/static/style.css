@@ -1,15 +1,19 @@
-.container{
+#container{
     display: flex;
     width: 500px;
     height: 500px;
     align-content: space-between;
+    justify-content: space-around;
+    position: absolute;
+    padding: 20px;
 }
 
-header{
+.header{
     background-color: #000;
     color: #fff;
-    height: 50px;
-    width: 1px;
+    height: auto;
+    width: auto;
+    overflow: auto;
 }
 
 .name{
@@ -22,4 +26,20 @@ header{
 
 li{
    list-style: none; 
+}
+
+.alcoholList{
+    display: flex;
+    align-content: space-between;
+    color: #6A2F91;
+    width: 50px;
+    height: 50px;
+    font-family: Arial;
+    text-transform: capitalize;
+}
+
+.test:nth-child(odd){
+    background-color: #EEEE;
+    width: auto;
+    height: auto;
 }
