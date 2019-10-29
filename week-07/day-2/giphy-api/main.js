@@ -1,6 +1,5 @@
 'use strict';
 
-//let giphyContainer = document.getElementById("giphy");
 let body = document.getElementsByTagName("body")[0];
 
     let ourRequest = new XMLHttpRequest();
