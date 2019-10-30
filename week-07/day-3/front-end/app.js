@@ -42,6 +42,18 @@ app.get('/greeter', (req, res) => {
     res.send(greeter);
 })
 
+app.get('/appenda/:appendable', (req, res) => {
+    let appenda = {};
+    res.setHeader("Content-type", "application/JSON");
+    if (req.params.appendable == undefined) {
+        res.status(404);
+    } else {
+        res.status(200);
+        appenda['appended'] = req.params.appendable + "a";
+    }
+    res.send(appenda);
+})
+
 
 app.listen(PORT, () => {
     console.log(`The server is up and running on ${PORT}`);
