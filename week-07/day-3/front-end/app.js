@@ -3,12 +3,30 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const PORT = 3000;
+const PORT = 8080;
 app.use(express.static('assets'));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
+
+app.get('/doubling', (req, res) => {
+    let doubling = {};
+    console.log(req.query.input);
+    res.setHeader("Content-type", "application/JSON");
+    if (req.query.input !== undefined) {
+        res.status(200);
+        doubling['received'] = req.query.input;
+        doubling['result'] = req.query.input * 2;
+    } else {
+        res.status(400);
+        doubling = {
+            "error": "Please provide an input!"
+        }
+    }
+    res.send(doubling);
+})
+
 
 app.listen(PORT, () => {
     console.log(`The server is up and running on ${PORT}`);
