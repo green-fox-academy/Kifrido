@@ -1,5 +1,8 @@
 'use strict';
 
+
+//show list of book titles
+
 let ourRequest = new XMLHttpRequest();
 ourRequest.open('GET', 'http://localhost:3000/', true);
 

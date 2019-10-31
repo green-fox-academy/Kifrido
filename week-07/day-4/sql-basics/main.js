@@ -59,3 +59,19 @@ app.listen(PORT, () => {
     console.log(`The server is up and running on ${PORT}`);
 });
 
+//add filters
+
+app.get('/books', function (req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Content-type", "application/JSON");
+    res.status(200);
+    conn.query(`SELECT book_name, aut_name, cate_descrip, pub_name, book_price  FROM book_mast, author, category, newpublisher  WHERE (book_mast.aut_id = author.aut_id AND book_mast.pub_id = newpublisher.pub_id AND book_mast.cate_id = category.cate_id AND cate_descrip = "${req.query.category}" );`, function (err, rows) {
+        if (err) {
+            console.log(err.toString());
+            res.status(500).send('Database error');
+            return;
+        }
+        res.send(rows);
+    });
+});
+
