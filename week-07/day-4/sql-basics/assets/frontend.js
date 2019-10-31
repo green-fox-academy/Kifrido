@@ -24,8 +24,7 @@ let tableContainer = document.getElementsByTagName("table")[0];
 myRequest.onload = function () {
     let myData = JSON.parse(myRequest.responseText);
     for (let i = 0; i < myData.length; i++) {
-        console.log(myData.length);
-           let tr = document.createElement("tr");
+        let tr = document.createElement("tr");
         let th = document.createElement("td");
         th.innerText = myData[i].book_name;
         tr.appendChild(th);
