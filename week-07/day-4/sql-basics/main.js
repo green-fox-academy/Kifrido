@@ -41,6 +41,20 @@ app.get('/', function (req, res) {
     });
 });
 
+//All books with full data
+
+app.get('/fulldata', function (req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    conn.query('SELECT book_name, aut_name, cate_descrip, pub_name, book_price  FROM book_mast, author, category, newpublisher  WHERE (book_mast.aut_id = author.aut_id AND book_mast.pub_id = newpublisher.pub_id AND book_mast.cate_id = category.cate_id);', function (err, rows) {
+        if (err) {
+            console.log(err.toString());
+            res.status(500).send('Database error');
+            return;
+        }
+        res.send(rows);
+    });
+});
+
 app.listen(PORT, () => {
     console.log(`The server is up and running on ${PORT}`);
 });
