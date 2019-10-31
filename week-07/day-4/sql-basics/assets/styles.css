@@ -1,0 +1,10 @@
+/*body{
+    display: flex;
+    width: 700px;
+    height: auto;
+    flex-wrap: wrap;
+}*/
+
+table, th, td {
+    border: 1px solid black;
+  }
