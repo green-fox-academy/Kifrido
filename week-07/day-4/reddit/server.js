@@ -8,7 +8,7 @@ const app = express();
 const PORT = 3000;
 const bodyParser = require('body-parser');
 app.use(express.static('assets'));
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 app.use(express.json());
 const env = require('dotenv').config();
 
@@ -26,8 +26,10 @@ conn.connect((err) => {
 
 conn.query('SELECT * FROM reddit;', function (err, rows) {
     console.log('Data received from Db:\n');
-    //console.log(rows);
+    console.log(rows);
 });
+
+//creating get/posts
 
 app.get('/posts', function (req, res) {
     req.accepts('application/json');
@@ -44,7 +46,27 @@ app.get('/posts', function (req, res) {
     });
 });
 
+//creating post posts 
+
 app.post('/posts', (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Content-type", "application/JSON");
+    res.status(200);
+    let sql = `INSERT INTO posts (title, url, timestamp) VALUES("${req.body.title}", "${req.body.url}", NOW())`;
+    let selector = `SELECT * from posts WHERE title = "${req.body.title}", url = "${req.body.url}" `;
+    conn.query(sql, selector, function (err, rows) {
+        if (err) {
+            console.log(err.toString());
+            res.status(500).send('Database error');
+            return;
+        }
+        res.send(rows);
+    });
+})
+
+
+//adding put request 
+app.put('/posts', (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Content-type", "application/JSON");
     res.status(200);
