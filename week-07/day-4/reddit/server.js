@@ -17,6 +17,7 @@ let conn = mysql.createConnection({
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
+    multipleStatements: true
 });
 
 conn.connect((err) => {
@@ -53,8 +54,8 @@ app.post('/posts', (req, res) => {
     res.setHeader("Content-type", "application/JSON");
     res.status(200);
     let sql = `INSERT INTO posts (title, url, timestamp) VALUES("${req.body.title}", "${req.body.url}", NOW())`;
-    let selector = `SELECT * from posts WHERE title = "${req.body.title}", url = "${req.body.url}" `;
-    conn.query(sql, selector, function (err, rows) {
+    let selector= `SELECT * from posts WHERE title = "${req.body.title}" `;
+    conn.query(`${sql}; ${selector}`, function (err, rows) {
         if (err) {
             console.log(err.toString());
             res.status(500).send('Database error');
