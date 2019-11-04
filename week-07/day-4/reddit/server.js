@@ -54,7 +54,7 @@ app.post('/posts', (req, res) => {
     res.setHeader("Content-type", "application/JSON");
     res.status(200);
     let sql = `INSERT INTO posts (title, url, timestamp) VALUES("${req.body.title}", "${req.body.url}", NOW())`;
-    let selector= `SELECT * from posts WHERE title = "${req.body.title}" `;
+    let selector= `SELECT * FROM posts ORDER BY id DESC LIMIT 1`;
     conn.query(`${sql}; ${selector}`, function (err, rows) {
         if (err) {
             console.log(err.toString());
