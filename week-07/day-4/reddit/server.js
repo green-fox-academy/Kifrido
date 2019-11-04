@@ -66,12 +66,14 @@ app.post('/posts', (req, res) => {
 })
 
 
-//adding put request 
-app.put('/posts', (req, res) => {
+//adding put request upvote
+app.put('/posts/:id/upvote', (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Content-type", "application/JSON");
     res.status(200);
-    conn.query(`SELECT *  FROM posts WHERE title = "${req.body.title}" ;`, function (err, rows) {
+    let sql = `UPDATE posts SET score = score + 1 WHERE id = "${req.params.id}"`;
+    let selector= `SELECT * from posts WHERE id = ${req.params.id} `;
+    conn.query(`${sql}; ${selector}`, function (err, rows) {
         if (err) {
             console.log(err.toString());
             res.status(500).send('Database error');
@@ -81,12 +83,15 @@ app.put('/posts', (req, res) => {
     });
 })
 
+//adding put request downvote
 
-//All books with full data
-
-/*app.get('/fulldata', function (req, res) {
+app.put('/posts/:id/downvote', (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
-    conn.query('SELECT book_name, aut_name, cate_descrip, pub_name, book_price  FROM book_mast, author, category, newpublisher  WHERE (book_mast.aut_id = author.aut_id AND book_mast.pub_id = newpublisher.pub_id AND book_mast.cate_id = category.cate_id);', function (err, rows) {
+    res.setHeader("Content-type", "application/JSON");
+    res.status(200);
+    let sql = `UPDATE posts SET score = score - 1 WHERE id = "${req.params.id}"`;
+    let selector= `SELECT * from posts WHERE id = ${req.params.id} `;
+    conn.query(`${sql}; ${selector}`, function (err, rows) {
         if (err) {
             console.log(err.toString());
             res.status(500).send('Database error');
@@ -94,7 +99,7 @@ app.put('/posts', (req, res) => {
         }
         res.send(rows);
     });
-});*/
+})
 
 app.listen(PORT, () => {
     console.log(`The server is up and running on ${PORT}`);
