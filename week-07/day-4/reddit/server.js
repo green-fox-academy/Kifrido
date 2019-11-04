@@ -3,12 +3,12 @@
 const express = require('express');
 const mysql = require('mysql');
 const app = express();
-//const table = "book_mast";
+//const table = "posts";
 //const path = require('path');
 const PORT = 3000;
-//const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 app.use(express.static('assets'));
-//app.use(bodyParser.json())
+app.use(bodyParser.json())
 app.use(express.json());
 const env = require('dotenv').config();
 
@@ -24,15 +24,40 @@ conn.connect((err) => {
     console.log('Connected!');
 });
 
-/*conn.query('SELECT * FROM book_mast;', function (err, rows) {
+conn.query('SELECT * FROM reddit;', function (err, rows) {
     console.log('Data received from Db:\n');
-    console.log(rows);
-});*/
+    //console.log(rows);
+});
 
-app.get('/hello', function (req, res) {
-    let greeting = "hello world";
-        res.send(greeting);
+app.get('/posts', function (req, res) {
+    req.accepts('application/json');
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Content-type", "application/json");
+    res.status(200);
+    conn.query('SELECT *  FROM posts;', function (err, rows) {
+        if (err) {
+            console.log(err.toString());
+            res.status(500).send('Database error');
+            return;
+        }
+        res.send(rows);
     });
+});
+
+app.post('/posts', (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Content-type", "application/JSON");
+    res.status(200);
+    conn.query(`SELECT *  FROM posts WHERE title = "${req.body.title}" ;`, function (err, rows) {
+        if (err) {
+            console.log(err.toString());
+            res.status(500).send('Database error');
+            return;
+        }
+        res.send(rows);
+    });
+})
+
 
 //All books with full data
 
