@@ -43,6 +43,6 @@ let myInterval = setInterval(function () {
     }
 }, 1000);
 
-candyRain.onclick = () => {
+candyRain.addEventListener("click", function () {
     candiesPerSecond.innerHTML = parseInt(candiesPerSecond.innerHTML) * 10
-};
+});
