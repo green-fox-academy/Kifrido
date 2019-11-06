@@ -8,19 +8,6 @@ let comedy = document.querySelector('[value=comedy]');
 let dramaM = document.querySelectorAll('[value=drama1]');
 let scifiM = document.querySelectorAll('[value=scifi1]');
 let comedyM = document.querySelectorAll('[value=comedy1]');
-let dramaNew = [];
-let scifiNew = [];
-let comedyNew = [];
-
-
-/*genres.addEventListener("change", function(){
-    drama.selected ? scifiNew.style.display = "none" : scifiNew.style.display = "";
-});*/
-
-
-/*genres.addEventListener("change", function(){
-    drama.selected ? console.log(scifiNew) = "none" : console.log("szia");
-});*/
 
 genres.addEventListener("change", function () {
     if (drama.selected) {
@@ -49,3 +36,16 @@ genres.addEventListener("change", function () {
         }
     }
 });
+
+movies.addEventListener("change", function(){
+    console.log(movies.options[1].innerHTML);
+    console.log(movies.selected);
+    console.log(movies);
+})
+
+/*function show_selected() {
+    let selector = document.getElementByClass('movies');
+    let value = selector[selector.selectedIndex].options;
+console.log(value);
+    document.getElementById('display').innerHTML = value;
+}*/
