@@ -1,35 +1,32 @@
 'use strict';
 
+let buttonForCats = document.querySelector('.cats');
+let buttonForSignup = document.querySelector('.signup');
+let button = document.querySelector('.button');
+let dog = document.querySelector('[value=Dog]');
+let cat = document.querySelector('[value=Cat]');
+let fish = document.querySelector('[value=Viktor]');
+let yes = document.querySelector('[value=Yes]');
+let no = document.querySelector('[value=No]');
+let pets = document.querySelector('.pets');
+let facts = document.querySelector('.facts');
+let form = document.querySelector('form');
 
-let form = document.querySelector("form");
-let log = document.querySelector("#log");
-let button = document.querySelector(".button");
-let output;
+pets.addEventListener('click', (event) => {
+	cat.checked || dog.checked ? buttonForSignup.disabled = false : buttonForSignup.disabled = true;
+});
 
-form.addEventListener("change", function (event) {
-    let data = new FormData(form);
-    output = "";
-    for (const entry of data) {
-        output = entry[1];
-    };
-    log.innerText = output;
-    if (output == "Dog" || output == "Cat") {
-        document.querySelector(".signup").disabled = false;
-    }else if (output == "Viktor the goldfish" && output == "no"){
-        document.querySelector(".signup").disabled = false;
-    } else{
-        document.querySelector(".signup").disabled = true;
-    }
-    if (output == "Yes") {
-        document.querySelector(".cats").disabled = false;
-    } else{
-        document.querySelector(".cats").disabled = true;
-    }
-    event.preventDefault();
-}, false);
+facts.addEventListener('click', (event) => {
+	yes.checked ? buttonForCats.disabled = false : buttonForCats.disabled = true;
+});
 
-button.addEventListener("click", function(){
-    alert("Thank you, you've successfully signed up for cat facts");
-})
+form.addEventListener('click', (event) => {
+	if(fish.checked && no.checked){
+        buttonForSignup.disabled = false;  
+        alert(`Sigh, we still added you to the cat facts list`);
+    } else {buttonForCats.disabled = true;}
+});
 
-
+button.addEventListener('click', (event) => {
+	alert(`Thank you, you've successfully signed up for cat facts`);
+});
