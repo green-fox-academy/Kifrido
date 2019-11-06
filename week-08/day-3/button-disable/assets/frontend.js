@@ -15,6 +15,8 @@ form.addEventListener("change", function (event) {
     log.innerText = output;
     if (output == "Dog" || output == "Cat") {
         document.querySelector(".signup").disabled = false;
+    }else if (output == "Viktor the goldfish" && output == "no"){
+        document.querySelector(".signup").disabled = false;
     } else{
         document.querySelector(".signup").disabled = true;
     }
