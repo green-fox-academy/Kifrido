@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./main.css">
+    <title>Login-form</title>
+</head>
+
+<body>
+    <div class="container">
+        <form action="/send" method="post">
+            <div class="pets">
+                <p>What is your favourite pet?</p>
+                <input type="radio" name="pet" value="Dog"> Dog<br>
+                <input type="radio" name="pet" value="Cat"> Cat<br>
+                <input type="radio" name="pet" value="Viktor the goldfish"> Viktor the goldfish<br>
+            </div>
+            <div class="facts">
+                <p>Do you want to sign up for cat facts?</p>
+                <input type="radio" name="facts" value="Yes">Yes<br>
+                <input type="radio" name="facts" value="No">No<br>
+            </div>
+            <div class="button">
+                <button class="cats" disabled type="submit">I love cats</button>
+                <button class="signup" disabled type="submit">Sign up</button>
+            </div>
+        </form>
+        <pre id="log">
+        </pre>
+    </div>
+    <script src="frontend.js"></script>
+</body>
+
+</html>
