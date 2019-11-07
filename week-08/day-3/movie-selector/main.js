@@ -37,15 +37,13 @@ genres.addEventListener("change", function () {
     }
 });
 
-movies.addEventListener("change", function(){
-    console.log(movies.options[1].innerHTML);
-    console.log(movies.selected);
-    console.log(movies);
-})
+let selectedMovieText = 'The selected movie is: ';
+let chosenMovie = document.querySelector('p');
+chosenMovie.textContent = selectedMovieText.concat('-');
 
-/*function show_selected() {
-    let selector = document.getElementByClass('movies');
-    let value = selector[selector.selectedIndex].options;
-console.log(value);
-    document.getElementById('display').innerHTML = value;
-}*/
+movies.addEventListener('change', (event) => {
+	let span = document.createElement('span');
+	span.textContent = movies.options[movies.selectedIndex].textContent
+	chosenMovie.textContent = selectedMovieText;
+	chosenMovie.appendChild(span);
+});
