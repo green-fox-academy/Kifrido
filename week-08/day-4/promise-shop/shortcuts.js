@@ -1,19 +1,22 @@
 'use strict';
 
-//
-let promise = Promise.resolve('resolved');
+(function() {
+  var parsePromised, promise;
 
- promise.then((response) => {
-  console.log(response);
-});
+  parsePromised = function(json) {
+    return new Promise(function(fulfill, reject) {
+      var e, error;
+      try {
+        return fulfill(JSON.parse(json));
+      } catch (error) {
+        e = error;
+        return reject(e);
+      }
+    });
+  };
 
-//reject
+  promise = parsePromised(process.argv[2]);
 
-let promise1 = Promise.reject(new Error('REJECTED!'));
+  promise.then(null, console.log);
 
-  
-  function onReject (error) {
-    console.log(error.message);
-  }
-
-  promise1.catch(onReject);
+}).call(this);
