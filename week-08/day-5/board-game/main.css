@@ -1,0 +1,130 @@
+body{
+    
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat (7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vh;
+    border: 1px solid;
+    grid-template-areas: 
+    "Start step1 step2 step3 step4 step5 step6"
+    "step20 middle middle middle middle middle step7" 
+    "step19 middle middle middle middle middle step8" 
+    "step18 middle middle middle middle middle step9" 
+    "step17 middle middle middle middle middle step10" 
+    "step16 step15 step14 step13 step12 step11 Pub";
+  }
+  
+  .Start { 
+      grid-area: Start; 
+    }
+  
+  .Pub { 
+      grid-area: Pub; 
+    }
+  
+  .step1 { 
+      grid-area: step1; 
+    }
+  
+  .step2 { 
+      grid-area: step2; 
+    }
+  
+  .step3 { 
+      grid-area: step3;
+     }
+  
+  .step4 { 
+      grid-area: step4; 
+    }
+  
+  .step5 {
+       grid-area: step5; 
+    }
+  
+  .step6 { 
+      grid-area: step6; 
+    }
+  
+  .step7 { 
+      grid-area: step7; 
+    }
+  
+  .step8 { 
+      grid-area: step8; 
+    }
+  
+  .step9 { 
+      grid-area: step9; 
+    }
+  
+  .step10 { 
+      grid-area: step10; 
+    }
+  
+  .step11 { 
+      grid-area: step11; 
+    }
+  
+  .step12 { 
+      grid-area: step12;
+     }
+  
+  .step13 { 
+      grid-area: step13; 
+    }
+  
+  .step14 { 
+      grid-area: step14; 
+    }
+  
+  .step15 { 
+      grid-area: step15; 
+    }
+  
+  .step16 { 
+      grid-area: step16; 
+    }
+  
+  .step17 { 
+      grid-area: step17; 
+    }
+  
+  .step18 { 
+      grid-area: step18; 
+    }
+  
+  .step19 { 
+      grid-area: step19; 
+    }
+  
+  .step20 { 
+      grid-area: step20; 
+    }
+  
+  .middle { 
+      grid-area: middle; 
+      background-color: #51D400;
+      width: 1008px;
+      height: 810px;
+      box-shadow: inset 0 0 10px #000000;
+    }
+
+    div{
+        background-color: #FFD62A;
+        height: 200px;
+        width: 200px;
+        border: 1px solid;
+    }
+
+    p {
+        transform: rotate(-45deg);
+        letter-spacing: 2px;
+        font-size: 40px;
+      }
