@@ -1,0 +1,110 @@
+.container {
+    display: grid;
+    height: 800px;
+    max-width: 960px;
+    background-color: #fff;
+    border: 3px solid;
+    border-color: black;
+    border-radius: 40px;
+    grid-gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-areas: 
+    "header header header header" 
+    "sidebar sidebar main main" 
+    "sidebar sidebar main main" 
+    "sidebar2 sidebar2 sidebar3 sidebar4" 
+    "sidebar2 sidebar2 sidebar3 sidebar4" 
+    "footer footer footer footer";
+  }
+
+  
+  .header { 
+      margin-top: 30px;
+      grid-area: header; 
+      height: 50%;
+      width: 960px;
+      border-top: 3px solid;
+      display: flex;
+      background-color: #B02AFF;
+      align-items: center;
+    }
+  
+  .sidebar { 
+      grid-area: sidebar; 
+      background-color: #51D400;
+      margin-left: 40px;
+      text-align: center;
+    }
+
+    .sidebar2 { 
+        grid-area: sidebar2; 
+        background-color: #51D400;
+        margin-left: 40px;
+        text-align: center;
+      }
+
+      .sidebar3 { 
+        grid-area: sidebar3; 
+        background-color: #51D400;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .sidebar4 { 
+        grid-area: sidebar4; 
+        background-color: #51D400;
+        margin-right: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .box{
+          background-color: #E90020;
+          height: 200px;
+          width: 140px;
+      }
+  
+  .footer { 
+      grid-area: footer;
+      background-color: #CCCCCC; 
+      margin: 0px 40px 60px 40px;
+    }
+  
+  .main { 
+      grid-area: main; 
+      background-color: #51D400;
+      margin-right: 40px;
+      text-align: center;
+    }
+
+    .link1{
+        width: 75px;
+        margin-left: 40px;
+    }
+
+    .link2{
+        width: 90px;
+    }
+
+    .link3{
+        width: 75px;
+    }
+
+    .link4{
+        width: 75px;
+    }
+
+    nav{
+        background-color: #2aeaff;
+        margin-right: 20px;
+        height: 30px;
+    }
+
+    p {
+        padding: 0px 50px 50px 50px;
+        font-size: 20px;
+      }
+  
