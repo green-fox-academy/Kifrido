@@ -1,0 +1,53 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: minmax(200, auto);
+    grid-gap: 10px;
+    height: 600px;
+    grid-template-areas: 
+    "first sixth sixth" 
+    "second sixth sixth" 
+    "third forth fifth";
+    background-color: #333333;
+  }
+  
+  .first{ 
+    grid-area: first; 
+    background-color: #B02AFF;
+}
+  
+  .second{ 
+    grid-area: second; 
+    background-color: #B02AFF;
+}
+  
+  .third{ 
+    grid-area: third; 
+    background-color: #B02AFF;
+}
+  
+  .forth{ 
+    grid-area: forth; 
+    background-color: #B02AFF;
+}
+  
+  .fifth{ 
+    grid-area: fifth; 
+    background-color: #B02AFF;
+}
+  
+  .sixth{ 
+    grid-area: sixth;
+    display: flex; 
+    background-color: #51D400;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.seventh{ 
+  background-color: #FFD62A;
+  height: 300px;
+  width: 80%;
+  position: absolute;
+}
