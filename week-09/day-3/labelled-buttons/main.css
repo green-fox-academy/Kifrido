@@ -20,13 +20,53 @@ label[for~="confirm"] {
   }
 
 label[for]{
-    height: 30px;
-    width: 120px;
     margin: 30px;
-    font-size: 16px;
-    text-align: center;
-    padding-top: 10px;
-    font-family: Arial;
     font-size: 13px;
+    text-align: center;
+    font-family: Arial;
     font-weight: bold;
+}
+
+.first .far{
+    width: 20px;
+    height: 20px;
+    color: #A1A4A8;
+}
+
+.second .far{
+    width: 20px;
+    height: 20px;
+    color: #C13E3C;
+}
+
+button{
+    background-color: #1C242B;  
+    border: hidden; 
+    height: 35px;
+}
+
+button .fas{
+    width: 20px;
+    height: 20px;
+}
+
+.second{
+    background-color: #F34541; 
+}
+
+.check{
+    background-color: #38BA7D;
+}
+div{
+    margin-top: 20px;
+    height: 35px;
+    width: 180px;
+}
+
+.fas:hover{
+    background-color: white;
+}
+
+.second .far:hover{
+    background-color: white;
 }
