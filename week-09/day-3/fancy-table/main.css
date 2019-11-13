@@ -1,0 +1,36 @@
+table{
+    width: 870px;
+    height: 500px;
+    font-family: Arial;
+}
+
+
+table,
+td {
+    border: 1px solid #333;
+    color: #9FA1B0;
+}
+
+thead {
+    background-color: #333;
+    color: #C6CDD5;
+    text-align: left;
+    
+}
+
+tbody :nth-last-child(odd){
+    background-color:#EBEBEB;
+}
+
+.myClass:before {
+    content: attr(data-currency);
+    margin-left: 20px;
+   }
+
+.myClass:after {
+    content: ".00";
+   }
+
+.month{
+    padding-left: 20px;
+   }
