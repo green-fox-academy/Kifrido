@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
+​
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <title>Labelled buttons</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <title>Labelled Buttons</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="first">
+    <form class="container">
+        <div>
+            <button class="trash"><i class="far fa-trash-alt"></i></button>
+            <label for="grey"></label>
+        </div>
+        <div class='first'>
             <button data-action="delete" class="red"><i class="far fa-trash-alt"></i></button>
+            <label class="delete" for="red">Delete</label>
         </div>
-        <div class="second">
-            <button data-action="delete" class="red"><i class="far fa-trash-alt"></i></button>
-                <label for="delete">Delete</label>
+        <div class='second'>
+            <button data-action="confirm" class="check"><i class="fas fa-check"></i></button>
+            <label class="confirm" for="check">Sure?</label>
         </div>
-        <div class="check">
-            <button data-action="confirm" class="red"><i class="fas fa-check-square"></i></button>
-                <label for="confirm">Sure?</label>
-        </div>
-    </div>
+    </form>
 </body>
+​
 
 </html>

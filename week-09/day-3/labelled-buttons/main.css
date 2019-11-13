@@ -1,72 +1,71 @@
-.container{
+
+.container {
     display: flex;
-    flex-direction: column;
-    background-color: #313841;
-    height: 400px;
-    width: 600px;
+    flex-flow: column;
     align-items: center;
     justify-content: center;
+    margin-top: 300px;
+    background: #313841;
     margin: 50px auto 0 auto;
+    width: 900px;
+    height: 700px;
 }
 
-label[for~="delete"] {
-    background-color: #F34541;
-    color: #FDD3D1;
-  }
-
-label[for~="confirm"] {
-    background-color: #38BA7D;
-    color: #B1F1D2;
-  }
-
-label[for]{
-    margin: 30px;
-    font-size: 13px;
-    text-align: center;
-    font-family: Arial;
-    font-weight: bold;
-}
-
-.first .far{
-    width: 20px;
-    height: 20px;
-    color: #A1A4A8;
-}
-
-.second .far{
-    width: 20px;
-    height: 20px;
-    color: #C13E3C;
-}
-
-button{
-    background-color: #1C242B;  
-    border: hidden; 
-    height: 35px;
-}
-
-button .fas{
-    width: 20px;
-    height: 20px;
-}
-
-.second{
-    background-color: #F34541; 
-}
-
-.check{
-    background-color: #38BA7D;
-}
 div{
-    margin-top: 20px;
-    height: 35px;
-    width: 180px;
+    display: flex;
+    width: 300px;
+    margin: 20px;
+    align-items: center;
 }
 
-.fas:hover{
-    background-color: white;
+button {
+    width: 30px;
+    height: 30px;
+    padding: 0px;
+    border: hidden;
+    color: white;
+    background: #1c242b;
+    border-collapse: collapse;
+    z-index: 2;
 }
 
-.second .far:hover{
-    background-color: white;
+.first button{
+    color: red;
+}
+
+.second button{
+    color: green;
+}
+
+.red:hover +.delete {
+    width: 200px;
+    transition: width 1s, opacity 2.5s;
+    opacity: 1;
+}
+
+.check:hover +.confirm {
+    width: 200px;
+    transition: width 1s, opacity 2.5s;
+    opacity: 1;
+}
+
+label{
+    display: flex;
+    border: hidden;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+}
+
+.delete{
+    background: #f34541;
+    width: 0px;
+    opacity: 0;
+}
+
+.confirm{
+    background: #38ba7d;
+    width: 0px;
+    opacity: 0;
 }
