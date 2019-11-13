@@ -6,21 +6,10 @@ table{
     background-color: #9EA7AF;
 }
 
-td {
-    color: #9598A9;
-}
-
 th{
     padding-left: 20px;
     font-weight: normal;
-}
-
-thead > tr {
-    background-color: #1B1E24;
-    color: #C6CDD5;
-    text-align: left;
-    height: 70px;
-    
+    border-bottom: 4px solid #9EA7AF;
 }
 
 .container{
@@ -32,16 +21,21 @@ thead > tr {
     justify-content: center;
 }
 
-tbody > tr {
-    color: #6C718A;
-}
-
-.row{
-    background-color:#EBEBEB;
-}
-
-.even{
+tr:nth-child(even){
     background-color:#fff;
+    color: #85899D;
+}
+
+tbody > tr:nth-child(odd){
+    background-color:#EBEBEB;
+    color: #666B85;
+}
+
+thead > tr {
+    background-color: #1B1E24;
+    color: #C6CDD5;
+    text-align: left;
+    height: 70px;  
 }
 
 .myClass:before {
@@ -56,3 +50,5 @@ tbody > tr {
 .month{
     padding-left: 20px;
    }
+
+
