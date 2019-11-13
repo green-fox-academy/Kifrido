@@ -1,25 +1,47 @@
 table{
-    width: 870px;
+    width: 860px;
     height: 500px;
     font-family: Arial;
+    font-size: 25px;
+    background-color: #9EA7AF;
 }
 
-
-table,
 td {
-    border: 1px solid #333;
-    color: #9FA1B0;
+    color: #9598A9;
 }
 
-thead {
-    background-color: #333;
+th{
+    padding-left: 20px;
+    font-weight: normal;
+}
+
+thead > tr {
+    background-color: #1B1E24;
     color: #C6CDD5;
     text-align: left;
+    height: 70px;
     
 }
 
-tbody :nth-last-child(odd){
+.container{
+    display: flex;
+    width: 1000px;
+    height: 600px;
+    background-color: #3E94EC;
+    align-items: center;
+    justify-content: center;
+}
+
+tbody > tr {
+    color: #6C718A;
+}
+
+.row{
     background-color:#EBEBEB;
+}
+
+.even{
+    background-color:#fff;
 }
 
 .myClass:before {
