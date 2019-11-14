@@ -3,14 +3,14 @@
 const express = require('express');
 const mysql = require('mysql');
 const app = express();
-//const table = "posts";
-//const path = require('path');
 const PORT = 3000;
 const bodyParser = require('body-parser');
 app.use(express.static('assets'));
 app.use(bodyParser.json());
 app.use(express.json());
 const env = require('dotenv').config();
+const config = require('./config');
+app.listen(config.app.port);
 
 let conn = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -43,7 +43,7 @@ app.get('/posts', function (req, res) {
             res.status(500).send('Database error');
             return;
         }
-        res.send(rows);
+        res.send({ "posts": rows});
     });
 });
 
@@ -101,6 +101,3 @@ app.put('/posts/:id/downvote', (req, res) => {
     });
 })
 
-app.listen(PORT, () => {
-    console.log(`The server is up and running on ${PORT}`);
-});
