@@ -61,7 +61,7 @@ app.post('/posts', (req, res) => {
             res.status(500).send('Database error');
             return;
         }
-        res.send(rows);
+        res.send(rows[1]);
     });
 })
 

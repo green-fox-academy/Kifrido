@@ -1,7 +1,7 @@
 'use strict';
 
 
-//show list of book titles
+//show main page
 
 let ourRequest = new XMLHttpRequest();
 ourRequest.open('GET', 'http://localhost:3000/posts', true);
@@ -21,12 +21,24 @@ ourRequest.onload = function () {
         let downvote = document.createElement("button");
         let title = document.createElement("h1");
         let links = document.createElement("a");
+        let modify = document.createElement("a");
+        let remove = document.createElement("a");
+        let linkdivs = document.createElement("div");
+
+        posts.setAttribute("class", "posts");
+        votedivs.setAttribute("class", "vote");
+        postdivs.setAttribute("class", "text");
         links.setAttribute("href", ourData.posts[i].url);
-        upvote.setAttribute("style", "background: url(assets/images/upvote.png)"  );
+        upvote.setAttribute("class", "button upvote");
+        linkdivs.setAttribute("class", "linkdivs");
         score.innerText = ourData.posts[i].score;
-        downvote.setAttribute("style", "background: url(assets/images/downvote.png)");
+        downvote.setAttribute("class", "button downvote");
+
+        modify.innerText = "Modify";
+        remove.innerText = " Remove";
         links.innerText = ourData.posts[i].url;
         title.innerText = ourData.posts[i].title;
+
         postContainer.appendChild(posts);
         posts.appendChild(votedivs);
         posts.appendChild(postdivs);
@@ -35,6 +47,9 @@ ourRequest.onload = function () {
         votedivs.appendChild(downvote);
         postdivs.appendChild(title);
         postdivs.appendChild(links);
+        linkdivs.appendChild(modify);
+        linkdivs.appendChild(remove);
+        postdivs.appendChild(linkdivs);
     };
 }
 ourRequest.send();
