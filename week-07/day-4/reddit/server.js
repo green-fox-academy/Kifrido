@@ -70,7 +70,7 @@ app.post('/posts', (req, res) => {
             res.status(500).send('Database error');
             return;
         }
-        res.sendFile(__dirname + '/views/index.html');
+        res.redirect('http://localhost:3000');
     });
 })
 
@@ -105,6 +105,6 @@ app.put('/posts/:id/downvote', (req, res) => {
             res.status(500).send('Database error');
             return;
         }
-        res.send(rows);
+        res.send(rows[1]);
     });
 })
