@@ -60,7 +60,7 @@ app.get('/posts', function (req, res) {
 
 app.post('/posts', (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Content-type", "application/JSON");
+    res.header("Content-Type", "application/json", "text/html");
     res.status(200);
     let sql = `INSERT INTO posts (title, url, timestamp) VALUES("${req.body.title}", "${req.body.url}", ${Date.now()})`;
     let selector= `SELECT * FROM posts ORDER BY id DESC LIMIT 1`;
@@ -70,7 +70,7 @@ app.post('/posts', (req, res) => {
             res.status(500).send('Database error');
             return;
         }
-        res.send(rows[1]);
+        res.sendFile(__dirname + '/views/index.html');
     });
 })
 
