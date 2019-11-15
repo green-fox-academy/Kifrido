@@ -59,8 +59,6 @@ app.get('/posts', function (req, res) {
 //creating post posts 
 
 app.post('/posts', (req, res) => {
-    /*console.log(req.body.url);
-    console.log(req.body.title);*/
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Content-type", "application/JSON");
     res.status(200);
@@ -76,13 +74,10 @@ app.post('/posts', (req, res) => {
     });
 })
 
-console.log(Date.now());
-
-
 //adding put request upvote
 app.put('/posts/:id/upvote', (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Content-type", "application/JSON");
+    res.setHeader("Content-type", "application/json");
     res.status(200);
     let sql = `UPDATE posts SET score = score + 1 WHERE id = "${req.params.id}"`;
     let selector= `SELECT * from posts WHERE id = ${req.params.id} `;

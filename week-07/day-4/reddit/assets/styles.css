@@ -16,6 +16,11 @@ img{
     width: 100%;
     height: 400px;
     object-fit: cover;
+
+}
+
+.space p{
+    line-height: 80%; 
 }
 
 /*set posts*/
@@ -38,6 +43,10 @@ article{
     width: 800px;
     height: auto;
     margin: 0;
+}
+
+.text p{
+    color: #989898;
 }
 
 /*set votes*/

@@ -23,20 +23,27 @@ ourRequest.onload = function () {
         let modify = document.createElement("a");
         let remove = document.createElement("a");
         let linkdivs = document.createElement("div");
+        let time = document.createElement("p");
 
         posts.setAttribute("class", "posts");
         votedivs.setAttribute("class", "vote");
         postdivs.setAttribute("class", "text");
         links.setAttribute("href", ourData.posts[i].url);
         upvote.setAttribute("class", "button upvote");
+        upvote.setAttribute("id", ourData.posts[i].id);
+        upvote.setAttribute("value", "up");
         linkdivs.setAttribute("class", "linkdivs");
-        score.innerText = ourData.posts[i].score;
         downvote.setAttribute("class", "button downvote");
+        downvote.setAttribute("id", ourData.posts[i].id);
+        downvote.setAttribute("value", "down");
+        score.setAttribute("id", ourData.posts[i].id);
 
+        score.innerText = ourData.posts[i].score;
         modify.innerText = "Modify";
         remove.innerText = " Remove";
         links.innerText = ourData.posts[i].url;
         title.innerText = ourData.posts[i].title;
+
 
         postContainer.appendChild(posts);
         posts.appendChild(votedivs);
@@ -46,9 +53,49 @@ ourRequest.onload = function () {
         votedivs.appendChild(downvote);
         postdivs.appendChild(title);
         postdivs.appendChild(links);
+        postdivs.appendChild(time);
         linkdivs.appendChild(modify);
         linkdivs.appendChild(remove);
         postdivs.appendChild(linkdivs);
+        time.innerHTML = `${when(ourData.posts[i].timestamp)}`;
     };
 }
 ourRequest.send();
+
+
+
+let up = document.querySelector("article");
+
+
+up.addEventListener("click", function (event) {
+    let voteId = event.target.id;
+    let action = event.target.value;
+    let myRequest = new XMLHttpRequest();
+    if (voteId !== undefined && action == "up") {
+        myRequest.open('PUT', `http://localhost:3000/posts/${voteId}/upvote`, true);
+        /*let scoreId = document.querySelector('p');
+        scoreId.innerText++;*/
+    }
+    if (voteId !== undefined && action == "down") {
+        myRequest.open('PUT', `http://localhost:3000/posts/${voteId}/downvote`, true);
+        console.log(voteId);
+       /* let scoreId = document.getElementsByTagName('p')[voteId];
+        console.log(scoreId);
+        scoreId.innerText--;*/
+    }
+    myRequest.send();
+});
+
+
+let when = function (timestamp) {
+    let difference = (Date.now() - timestamp) / 1000 / 60;
+    if (difference > 60 * 24) {
+        difference = difference / 60 / 24;
+        return `${Math.floor(difference)} days ago`
+    } else if (difference > 60) {
+        difference = difference / 60;
+        return `${Math.floor(difference)} hours ago`;
+    } else {
+        return `${Math.floor(difference)} minutes ago`;
+    }
+}
