@@ -59,8 +59,8 @@ app.get('/posts', function (req, res) {
 //creating post posts 
 
 app.post('/posts', (req, res) => {
-    console.log(req.body.url);
-    console.log(req.body.title);
+    /*console.log(req.body.url);
+    console.log(req.body.title);*/
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Content-type", "application/JSON");
     res.status(200);
