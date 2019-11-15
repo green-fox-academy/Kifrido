@@ -64,7 +64,7 @@ app.post('/posts', (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Content-type", "application/JSON");
     res.status(200);
-    let sql = `INSERT INTO posts (title, url, timestamp) VALUES("${req.body.title}", "${req.body.url}", NOW())`;
+    let sql = `INSERT INTO posts (title, url, timestamp) VALUES("${req.body.title}", "${req.body.url}", ${Date.now()})`;
     let selector= `SELECT * FROM posts ORDER BY id DESC LIMIT 1`;
     conn.query(`${sql}; ${selector}`, function (err, rows) {
         if (err) {
@@ -75,6 +75,8 @@ app.post('/posts', (req, res) => {
         res.send(rows[1]);
     });
 })
+
+console.log(Date.now());
 
 
 //adding put request upvote
