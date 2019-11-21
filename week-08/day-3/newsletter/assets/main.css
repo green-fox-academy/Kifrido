@@ -1,0 +1,50 @@
+body{
+    display: box;
+    background-color: #E1775F;
+    font-family: Arial;
+}
+
+.container{
+    display: box;
+    background-color: #FFFFFF;
+    text-align: center;
+    height: 500px;
+    width: 500px;
+    margin-top: 100px;
+    margin-left: 500px;
+    flex-wrap: wrap;
+}
+
+form {
+    padding: 1em;
+  }
+  
+  form div + div {
+    margin-top: 1em;
+  }
+
+  input[type="text"]{
+    display: block;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+  
+  input[type="email"]{
+      display: block;
+      background-size: 10%;
+      background-position-x: right;
+      margin-right: auto;
+      margin-left: auto;
+      padding-top: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+  }
+  
+  button {
+    background-color: #46C1DC;
+    color: #fff;
+    border-radius: 4px;
+  }
