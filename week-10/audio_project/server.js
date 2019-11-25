@@ -29,7 +29,7 @@ conn.query('SELECT * FROM audio_player;', function (err, rows) {
     console.log(rows);
 });
 
-//creating get/posts
+//creating get/playlist
 
 
 app.get('/', function (req, res) {
@@ -49,7 +49,7 @@ app.get('/playlists', function (req, res) {
             res.status(500).send('Database error');
             return;
         }
-        res.send({ "playlists": rows});
+        res.send({ "playlists": rows });
     });
 });
 
@@ -76,38 +76,21 @@ app.delete('/playlists/:id', (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.header("Content-Type", "application/json", "text/html");
     res.status(200);
-    let sql = `DELETE from playlists WHERE id= ${req.params.id} AND sys !=1`;
-    conn.query(`${sql}`, function (err, rows) {
-        res.setHeader("Content-type", "application/JSON");
-        if (req.params.id == undefined || req.params.system == 1) {
-            res.status(404);
-            console.log("cannot delete");
-            res.send("cannot delete");
-        } else {
-            res.status(200);
-            res.send(rows);
-        }
-    });
+    console.log(req.params.id);
+    if (req.params.id == "undefined") {
+        console.log("error");
+        res.status(404);
+        res.json("no id is given");
+    } else {
+        let sql = `DELETE from playlists WHERE id= ${req.params.id} AND sys !=1`;
+        conn.query(`${sql}`, function (err, rows) {
+            res.setHeader("Content-type", "application/JSON");
+            if (err) {
+                console.log(err.toString());
+                res.status(500).send('Database error');
+                return;
+            }
+            res.send({ "playlists": rows });
+        });
+    }
 })
-
-
-/*app.get('/add', function (req, res) {
-    res.sendFile(__dirname + '/views/addpost.html');
-})
-
-
-app.post('/posts', (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.header("Content-Type", "application/json", "text/html");
-    res.status(200);
-    let sql = `INSERT INTO posts (title, url, timestamp) VALUES("${req.body.title}", "${req.body.url}", ${Date.now()})`;
-    let selector= `SELECT * FROM posts ORDER BY id DESC LIMIT 1`;
-    conn.query(`${sql}; ${selector}`, function (err, rows) {
-        if (err) {
-            console.log(err.toString());
-            res.status(500).send('Database error');
-            return;
-        }
-        res.redirect('http://localhost:3000');
-    });
-})*/
