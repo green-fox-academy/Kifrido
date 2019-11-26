@@ -64,14 +64,31 @@ app.listen(PORT, () => {
 app.get('/books', function (req, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Content-type", "application/JSON");
-    res.status(200);
-    conn.query(`SELECT book_name, aut_name, cate_descrip, pub_name, book_price  FROM book_mast, author, category, newpublisher  WHERE (book_mast.aut_id = author.aut_id AND book_mast.pub_id = newpublisher.pub_id AND book_mast.cate_id = category.cate_id AND cate_descrip = "${req.query.category}" );`, function (err, rows) {
+    let all = `SELECT book_name, aut_name, cate_descrip, pub_name, book_price  FROM book_mast, author, category, newpublisher  WHERE (book_mast.aut_id = author.aut_id AND book_mast.pub_id = newpublisher.pub_id AND book_mast.cate_id = category.cate_id);`
+    conn.query(all, function (err, rows) {
         if (err) {
             console.log(err.toString());
-            res.status(500).send('Database error');
+            res.status(500);
+            res.send('Database error');
             return;
         }
-        res.send(rows);
+        let queryResult = {}
+        Object.keys(req.query).forEach(filter => {
+            if (filter == 'category') {
+                queryResult = rows.filter(item => item.cate_descrip.toLowerCase() == req.query.category.toLowerCase());
+            }
+            if (filter == 'publisher') {
+                queryResult = rows.filter(item => item.pub_name.toLowerCase() == req.query.publisher.toLowerCase());
+            }
+            if (filter == 'plt') {
+                queryResult = rows.filter(item => item.book_price < req.query.plt);
+            }
+            if (filter == 'pgt') {
+                queryResult = rows.filter(item => item.book_price > req.query.pgt);
+            }
+        })
+        res.send(queryResult);
     });
+
 });
 
