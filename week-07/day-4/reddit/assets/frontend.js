@@ -40,6 +40,7 @@ ourRequest.onload = function () {
         score.setAttribute("class", "test");
 
         score.innerText = ourData.posts[i].score;
+        console.log("itt");
         modify.innerText = "Modify";
         remove.innerText = " Remove";
         links.innerText = ourData.posts[i].url;
@@ -65,46 +66,23 @@ ourRequest.send();
 
 
 
+let o = document.getElementsByTagName("p").innerText;
+console.log(o);
 let up = document.querySelector("article");
 
 
 up.addEventListener("click", function (event) {
     let voteId = event.target.id;
+    let selectedScore = document.querySelector(`[class='test'][id="${voteId}"]`);
     let action = event.target.value;
     let myRequest = new XMLHttpRequest();
     if (voteId !== undefined && action == "up") {
         myRequest.open('PUT', `http://localhost:3000/posts/${voteId}/upvote`, true);
-        /* let myData = JSON.parse(myRequest.responseText);*/
-        /* let scoreId = document.getElementById(voteId).id;*/
-        console.log(myRequest.responseText);
-        let p = document.querySelectorAll('.test')[0];
-        /* console.log(p.innerText);*/
-        /*p.innerText = ourData.posts[0].score;*/
-        /* console.log(myData.posts[0].score);*/
-        /* console.log(scoreId);
-         console.log(p);*/
+        selectedScore.textContent = parseInt(selectedScore.textContent) + 1;
     }
     if (voteId !== undefined && action == "down") {
         myRequest.open('PUT', `http://localhost:3000/posts/${voteId}/downvote`, true);
-        myRequest.onreadystatechange = function () {
-            if (myRequest.readyState === XMLHttpRequest.DONE && myRequest.status === 200) {
-                let myData = JSON.parse(myRequest.responseText);
-                for (let j = 0; j < myData.length; j++) {
-                    console.log(myData[j].score);
-                    /*let scoreId = document.getElementById(voteId).id;*/
-                    let p = document.querySelectorAll('.test');
-                    let test = Array.from(p);
-                    for (let k = 0; k < test.length; k++) {
-                        console.log(test[k].score);
-                    }
-                    
-                }
-            }
-        }
-        /* console.log(voteId);*/
-        /* let scoreId = document.getElementsByTagName('p')[voteId];
-         console.log(scoreId);
-         scoreId.innerText--;*/
+        selectedScore.textContent = parseInt(selectedScore.textContent) - 1;
     }
     myRequest.send();
 });
