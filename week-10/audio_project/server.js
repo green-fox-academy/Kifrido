@@ -11,6 +11,9 @@ const env = require('dotenv').config();
 const config = require('./config');
 app.listen(config.app.port);
 
+const fs = require('fs');
+const mm = require('musicmetadata');
+
 let conn = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
@@ -94,3 +97,46 @@ app.delete('/playlists/:id', (req, res) => {
         });
     }
 })
+
+// create a new parser from a node ReadStream
+
+
+/*parser.on('TLEN', function (result) {
+    console.log(result);
+});*/
+
+
+mm(fs.createReadStream('assets/music/Ars_Sonor_-_02_-_Never_Give_Up.mp3'), { duration: true }, function (err, metadata) {
+
+});
+
+//List all the tracks added to the playlist
+
+app.get('/playlist-tracks/:playlist_id', function (req, res) {
+    req.accepts('application/json');
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Content-type", "application/json");
+    res.status(200);
+    let tableContent = `SELECT id, path FROM tracks WHERE playlist_id = "${req.params.playlist_id}";`
+
+    let parser = mm(fs.createReadStream('assets/music/Ars_Sonor_-_02_-_Never_Give_Up.mp3'), function (err, metadata) {
+        if (err) throw err;
+        console.log(metadata);
+        conn.query(tableContent, function (err, rows) {
+            if (err) {
+                console.log(err.toString());
+                res.status(500).send('Database error');
+                return;
+            } else {
+                rows.forEach(element => {
+                    Object.assign(element, {
+                        "title": metadata.title, "artist": metadata.artist,
+                        "duration": metadata.duration
+                    });
+                });
+                res.send(rows);
+            }
+        });
+    });
+});
+
