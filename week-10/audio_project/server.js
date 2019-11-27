@@ -185,3 +185,26 @@ app.post('/playlist-tracks/:playlist_id', (req, res) => {
         res.send(rows);
     });
 })
+
+//Delete the given track
+
+app.delete('/playlist-tracks/:playlist_id?/:track_id?', (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.header("Content-Type", "application/json", "text/html");
+    let sql = `DELETE from tracks WHERE playlist_id= ${req.params.playlist_id} AND id= ${req.params.track_id}`;
+    let selector = `SELECT * FROM tracks WHERE playlist_id= ${req.params.playlist_id} AND id= ${req.params.track_id}`
+    conn.query(`${selector}; ${sql}`, function (err, rows) {
+        res.setHeader("Content-type", "application/JSON");
+        if (err) {
+            console.log(err.toString());
+            res.status(500).send('Please provide a track and a playlist id');
+            return;
+        } else if (rows[0].length == 0) {
+            res.status(403);
+            res.send(JSON.stringify({ 'err': 'Please provide a valid track id and a playlist id.' }));
+        } else {
+            res.status(200);
+            res.send({ "playlists": rows[0] });
+        }
+    });
+})
