@@ -40,7 +40,6 @@ ourRequest.onload = function () {
         score.setAttribute("class", "test");
 
         score.innerText = ourData.posts[i].score;
-        console.log("itt");
         modify.innerText = "Modify";
         remove.innerText = " Remove";
         links.innerText = ourData.posts[i].url;
@@ -64,12 +63,7 @@ ourRequest.onload = function () {
 }
 ourRequest.send();
 
-
-
-let o = document.getElementsByTagName("p").innerText;
-console.log(o);
 let up = document.querySelector("article");
-
 
 up.addEventListener("click", function (event) {
     let voteId = event.target.id;
