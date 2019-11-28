@@ -45,14 +45,15 @@ app.get('/playlists', function (req, res) {
     req.accepts('application/json');
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Content-type", "application/json");
-    res.status(200);
     conn.query('SELECT *  FROM playlists;', function (err, rows) {
         if (err) {
             console.log(err.toString());
             res.status(500).send('Database error');
             return;
+        } else {
+            res.status(200);
+            res.send({ rows });
         }
-        res.send({ "playlists": rows });
     });
 });
 
@@ -98,18 +99,6 @@ app.delete('/playlists/:id', (req, res) => {
     }
 })
 
-// create a new parser from a node ReadStream
-
-
-/*parser.on('TLEN', function (result) {
-    console.log(result);
-});*/
-
-
-mm(fs.createReadStream('assets/music/Ars_Sonor_-_02_-_Never_Give_Up.mp3'), { duration: true }, function (err, metadata) {
-
-});
-
 //List all the tracks in root folder
 
 app.get('/playlist-tracks/', function (req, res) {
@@ -117,25 +106,14 @@ app.get('/playlist-tracks/', function (req, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Content-type", "application/json");
     res.status(200);
-    let tableContent = `SELECT id, path FROM tracks WHERE playlist_id = 1;`
-    let parser = mm(fs.createReadStream('assets/music/Ars_Sonor_-_02_-_Never_Give_Up.mp3'), function (err, metadata) {
-        if (err) throw err;
-        console.log(metadata);
-        conn.query(tableContent, function (err, rows) {
-            if (err) {
-                console.log(err.toString());
-                res.status(500).send('Database error');
-                return;
-            } else {
-                rows.forEach(element => {
-                    Object.assign(element, {
-                        "title": metadata.title, "artist": metadata.artist,
-                        "duration": metadata.duration
-                    });
-                });
-                res.send(rows);
-            }
-        });
+    let tableContent = `SELECT id, title, artist, path FROM tracks WHERE playlist_id = 1;`
+    conn.query(tableContent, function (err, rows) {
+        if (err) {
+            console.log(err.toString());
+            res.status(500).send('Database error');
+        } else {
+            res.send(rows);
+        }
     });
 });
 
@@ -146,27 +124,18 @@ app.get('/playlist-tracks/:playlist_id', function (req, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Content-type", "application/json");
     res.status(200);
-    let tableContent = `SELECT id, path FROM tracks WHERE playlist_id = "${req.params.playlist_id}";`
-    let parser = mm(fs.createReadStream('assets/music/Ars_Sonor_-_02_-_Never_Give_Up.mp3'), function (err, metadata) {
-        if (err) throw err;
-        console.log(metadata);
-        conn.query(tableContent, function (err, rows) {
-            if (err) {
-                console.log(err.toString());
-                res.status(500).send('Database error');
-                return;
-            } else {
-                rows.forEach(element => {
-                    Object.assign(element, {
-                        "title": metadata.title, "artist": metadata.artist,
-                        "duration": metadata.duration
-                    });
-                });
-                res.send(rows);
-            }
-        });
+    let tableContent = `SELECT id, title, artist, path FROM tracks WHERE playlist_id = "${req.params.playlist_id}";`
+    conn.query(tableContent, function (err, rows) {
+        if (err) {
+            console.log(err.toString());
+            res.status(500).send('Database error');
+            return;
+        } else {
+            res.send(rows);
+        }
     });
 });
+
 
 //Add the track to the playlist provided 
 
@@ -174,9 +143,9 @@ app.post('/playlist-tracks/:playlist_id', (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.header("Content-Type", "application/json", "text/html");
     res.status(200);
-    let sql = `INSERT INTO tracks (path, playlist_id) VALUES ('assets/music/Ars_Sonor_-_02_-_Never_Give_Up.mp3', "${req.params.playlist_id}")`;
-    let allTracks = `INSERT INTO tracks (path, playlist_id) VALUES ('assets/music/Ars_Sonor_-_02_-_Never_Give_Up.mp3', 1)`;
-    conn.query(`${sql}; ${allTracks}`, function (err, rows) {
+    //let path = `SELECT path FROM tracks WHERE id = ${}`;
+    //let sql = `INSERT INTO tracks (path, playlist_id) SELECT path FROM tracks WHERE playlist_id=1 VALUES ("${path}", "${req.params.playlist_id}")`;
+    conn.query(`${path}`, function (err, rows) {
         if (err) {
             console.log(err.toString());
             res.status(500).send('Database error');

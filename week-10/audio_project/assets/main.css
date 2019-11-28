@@ -25,6 +25,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "controllers slider volume";
+}
+
+.controllers{
+    grid-area: controllers;  
+}
+
+.volume{
+    grid-area: volume;  
 }
 
 .new :nth-child(odd){
@@ -81,7 +93,8 @@ img {
 
   .slider {
     -webkit-appearance: none;
-    width: 100%;
+    grid-area: slider;
+    width: 400px;
     height: 15px;
     border-radius: 5px;
     background: #d3d3d3;

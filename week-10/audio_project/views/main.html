@@ -16,28 +16,46 @@
         </div>
 
         <div class="controlpanel">
-            <img src="/images/rewind.svg" onclick=myFunction() alt="star" height="20" width="20">
-            <img src="/images/forward.svg" onclick=myFunction() alt="star" height="20" width="20">
-            <audio controls src="/music/Ars_Sonor_-_02_-_Never_Give_Up.mp3" preload="auto">
-                Your browser does not support the
-                <code>audio</code> element.
+            <audio id="player">
+                <source>
             </audio>
+            <div class="controllers">
+                <button onclick="document.getElementById('player').currentTime -= 10">
+                    <img src="/images/rewind.svg" />
+                </button>
+                <button onclick="document.getElementById('player').play()">
+                    <img src="/images/play.svg" />
+                </button>
+                <button onclick="document.getElementById('player').pause()">
+                    <img src="/images/pause.svg" />
+                </button>
+                <button onclick="document.getElementById('player').currentTime += 10">
+                    <img src="/images/forward.svg" />
+                </button>
+            </div>
+            <div class="slider">
+                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+            <div class="volume">
+                <button onclick="document.getElementById('player').volume += 0.1">Vol+ </button>
+                <button onclick="document.getElementById('player').volume -= 0.1">Vol- </button>
+            </div>
         </div>
         <div class="playlists">
             <h1>Playlists</h1>
             <img src="/images/add.png" onclick=myFunction() alt="star" height="30" width="30">
-            <div class="new">
-                <p>All tracks</p>
-                <p>Favorites</p>
-            </div>
+            <div class="new"></div>
         </div>
         <div class="current">
             <h1>whatever test</h1>
             <p>currently playing</p>
-            <img class = "image" src="/images/add.png" onclick=myFunction() alt="star" height="30" width="30">
-            <img class = "image" src="/images/star.svg" onclick=myFunction() alt="star" height="20" width="20">
+            <img class="image" src="/images/add.png" onclick=myFunction() alt="star" height="30" width="30">
+            <img class="image" src="/images/star.svg" onclick=myFunction() alt="star" height="20" width="20">
         </div>
-        <div class="tracks"></div>
+        <div class="tracks">
+            <ol></ol>
+
+        </div>
 
 
 
