@@ -47,6 +47,14 @@ p{
     padding: 10px;
 }
 
+li{
+    padding: 10px;
+}
+
+ol :nth-child(odd){
+    background-color: #EAEAEA;
+}
+
 .current{
     grid-area: current;
     display: flex;
@@ -68,6 +76,7 @@ img {
     grid-area: playlists;
     display: inline-block;
     border-right: 2px solid #DBDBDB;
+    overflow: scroll;
 }
 
 .tracks{
@@ -103,6 +112,7 @@ img {
     -webkit-transition: .2s;
     transition: opacity .2s;
     margin-top: 5px;
+    margin-right: 30px;
   }
   .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -111,5 +121,58 @@ img {
     height: 25px;
     border-radius: 50%;
     background: #4CAF50;
+    cursor: pointer;
+  }
+
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    margin-top: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(76, 175, 79, 0.527);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    filter: brightness(90%);
     cursor: pointer;
   }

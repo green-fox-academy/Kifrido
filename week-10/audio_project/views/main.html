@@ -43,7 +43,19 @@
         </div>
         <div class="playlists">
             <h1>Playlists</h1>
-            <img src="/images/add.png" onclick=myFunction() alt="star" height="30" width="30">
+            <button id="myBtn">
+                <img src="/images/add.png" width=30px; height=30px;>
+            </button>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Playlist</p>
+                    <form>
+                        <input type="text" id="playlist" name="playlist" value="">
+                        <button class="modalButton" type="submit" form="form1" value="Submit">Submit</button>
+                    </form>
+                </div>
+            </div>
             <div class="new"></div>
         </div>
         <div class="current">
