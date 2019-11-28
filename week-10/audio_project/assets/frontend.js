@@ -1,41 +1,23 @@
 'use strict';
 
+//adding playlist to the playlist list
+
 let modalButton = document.querySelector(".modalButton");
 
 modalButton.addEventListener("click", () => {
+  modal.style.display = "none"
   fetch("http://localhost:3000/playlists", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ "playlist": playlist.value})
+    body: JSON.stringify({ "playlist": playlist.value })
   })
     .then(response => response.json())
-   /* .then(ourData => {
-      p.innerText = `Your URL is aliased to ${ourData[0].alias} and your secret code is ${ourData[0].secretCode}.`
-      alias.value = "";
-      url.value = "";
-    })*/
     .catch(error => {
       console.log(error);
-      p.textContent = "Your alias is already in use!";
-      p.style.color = "red";
     });
-  });
-  
-  
-/*function addPlaylistFunction() {
-  let addRequest = new XMLHttpRequest();
-  addRequest.open('POST', 'http://localhost:3000/playlists', true);
+});
 
-  ourRequest.onload = function () {
-    let addData = JSON.parse(ourRequest.responseText);
-    console.log(addData);
-  }
-  ourRequest.send();
-}*/
-
-
-
-let source = document.querySelector('source');
+//adding songs to tracklist
 
 let ourRequest = new XMLHttpRequest();
 ourRequest.open('GET', 'http://localhost:3000/playlist-tracks/', true);
@@ -49,12 +31,15 @@ ourRequest.onload = function () {
   console.log(ourData);
   for (let i = 0; i < ourData.length; i++) {
     let song = document.createElement("li");
-    song.setAttribute("src", ourData[i].path);
+    song.setAttribute("id", ourData[i].path);
+    song.setAttribute("class", "music");
     song.innerText = `${ourData[i].title} (${ourData[i].artist})`;
     musicContainer.appendChild(song);
   };
 }
 ourRequest.send();
+
+//reading the playlist list from the database
 
 let myRequest = new XMLHttpRequest();
 myRequest.open('GET', 'http://localhost:3000/playlists', true);
@@ -73,6 +58,8 @@ myRequest.onload = function () {
 };
 
 myRequest.send();
+
+//modal functions
 
 let modal = document.getElementById("myModal");
 
@@ -98,3 +85,20 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 }
+
+//play the songs from the tracklist
+
+let ol = document.querySelector('ol');
+let source = document.querySelector('source');
+let audio = document.querySelector('#player');
+let p = document.querySelector('.current p');
+
+
+ol.addEventListener("click", (event) => {
+  let value = event.target.id;
+  source.setAttribute("src", value);
+  audio.load();
+  audio.play();
+  p.innerText = event.target.innerText;
+})
+
