@@ -1,11 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Beers } from './Beers'
 
-export class Header extends React.Component {
+class Header extends React.Component {
+    getStyle = () => {
+        return {border: '1px solid #F3F3F3'};
+    }
+
     render() {
         const companyName = 'Beerers'
         return (
-            <header>{ companyName }</header>
+            <div 
+            className="container"
+            style={this.getStyle()}>
+            <h1>{ companyName }</h1>
+            < Beers />
+            </div>
         );
     }
 }
