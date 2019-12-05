@@ -4,7 +4,6 @@ export class Beer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: "",
         };
     }
 

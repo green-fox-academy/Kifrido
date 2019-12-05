@@ -4,7 +4,9 @@ import { Cards } from './Card'
 
 class Header extends Component {
     getStyle = () => {
-        return { border: '1px solid #F3F3F3' };
+        return { 
+            border: '1px solid #F3F3F3'
+        };
     }
 
     render() {
@@ -14,10 +16,14 @@ class Header extends Component {
                 className="container"
                 style={this.getStyle()}>
                 <h1>{companyName}</h1>
+                <div style={{display: 'flex'}}>
                 <Cards />
                 <Cards />
                 <Cards />
-
+                <Cards />
+                <Cards />
+                <Cards />
+                </div>
             </div>
         );
     }
