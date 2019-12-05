@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
-import { Beers } from './Beers'
+import { Cards } from './Card'
 
-class Header extends React.Component {
+class Header extends Component {
     getStyle = () => {
         return { border: '1px solid #F3F3F3' };
     }
@@ -14,7 +14,10 @@ class Header extends React.Component {
                 className="container"
                 style={this.getStyle()}>
                 <h1>{companyName}</h1>
-                < Beers/>
+                <Cards />
+                <Cards />
+                <Cards />
+
             </div>
         );
     }
@@ -24,3 +27,4 @@ ReactDOM.render(
     <Header />,
     document.getElementById('root')
 );
+

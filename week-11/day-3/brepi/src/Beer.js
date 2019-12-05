@@ -4,7 +4,7 @@ export class Beer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: ""
+            name: "",
         };
     }
 
@@ -16,7 +16,7 @@ export class Beer extends Component {
     }
 
     async componentDidMount() {
-        const url = 'https://api.punkapi.com/v2/beers';
+        const url = 'https://api.punkapi.com/v2/beers/random';
 
         await fetch(url)
             .then(res => res.json())
@@ -29,14 +29,14 @@ export class Beer extends Component {
         const { beers } = this.state;
         return (
             <div>
-                {beers ? beers.map((beer) => <
+                    {beers ? beers.map((beer, i) => <p key={i}>{beer.name}</p>) : null}
+                    {beers ? beers.map((beer) => <
                     img key={beer.id}
                     src={beer.image_url}
                     alt="beer"
                     style={this.getStyleImage()}
                 ></img>
                 ) : null}
-                {beers ? beers.map((beer) => <p key={beer.id}>{beer.name}</p>) : null}
             </div>
         )
     }
