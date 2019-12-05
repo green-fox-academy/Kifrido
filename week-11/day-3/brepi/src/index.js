@@ -4,17 +4,17 @@ import { Beers } from './Beers'
 
 class Header extends React.Component {
     getStyle = () => {
-        return {border: '1px solid #F3F3F3'};
+        return { border: '1px solid #F3F3F3' };
     }
 
     render() {
         const companyName = 'Beerers'
         return (
-            <div 
-            className="container"
-            style={this.getStyle()}>
-            <h1>{ companyName }</h1>
-            < Beers />
+            <div
+                className="container"
+                style={this.getStyle()}>
+                <h1>{companyName}</h1>
+                < Beers/>
             </div>
         );
     }
