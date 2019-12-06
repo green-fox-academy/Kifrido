@@ -5,11 +5,11 @@ import { Card, CardHeader, CardBody } from 'react-simple-card';
 export class Cards extends React.Component {
     render() {
         return (
-        <Card
-            style={{ width: 300, height: 'auto' }}>
-            <CardHeader><Beer /></CardHeader>
-            <CardBody>Body</CardBody>
-        </Card>
+            <Card
+                style={{ width: 300, height: 'auto' }}>
+                <CardHeader style={{ justifyContent: 'center', minHeight: 200 }}><Beer /></CardHeader>
+                <CardBody></CardBody>
+            </Card>
         )
     };
 };

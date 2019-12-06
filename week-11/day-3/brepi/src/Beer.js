@@ -9,8 +9,8 @@ export class Beer extends Component {
 
     getStyleImage = () => {
         return {
-            width: 100,
-            height: 'auto'
+            maxWidth: 30,
+            maxHeight: 'auto'
         };
     }
 
@@ -24,13 +24,21 @@ export class Beer extends Component {
             })
             .catch(err => console.error(err))
     }
+
+    handleClick = () => {
+        //alert('card has been clicked');
+        console.log(this.state.beers.map((beer, i) => <p key={i}>{beer.description}</p>));
+       this.setState ((this.state.beers.map((beer, i) => <p key={i}>{beer.description}</p>)))
+    };
+
     render() {
         const { beers } = this.state;
         return (
             <div>
-                    {beers ? beers.map((beer, i) => <p key={i}>{beer.name}</p>) : null}
-                    {beers ? beers.map((beer) => <
+                {beers ? beers.map((beer, i) => <p key={i}>{beer.name}</p>) : null}
+                {beers ? beers.map((beer) => <
                     img key={beer.id}
+                    onClick={this.handleClick}
                     src={beer.image_url}
                     alt="beer"
                     style={this.getStyleImage()}
