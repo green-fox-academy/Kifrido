@@ -1,0 +1,17 @@
+.container{
+    border: 1px solid #F3F3F3;
+}
+
+.cards{
+    max-width: 30px;
+    max-height: auto;
+}
+
+.allCards{
+    width: 2000px;
+    height: auto;
+    display: flex;
+    margin: 5px;
+    justify-content: space-evenly;
+    justify-items: space-evenly;
+}

@@ -1,52 +1,28 @@
 import React, { Component } from 'react'
+import './cards.css';
 
 export class Beer extends Component {
-    constructor(props) {
+    constructor(props){
         super(props);
-        this.state = {
-        };
-    }
-
-    getStyleImage = () => {
-        return {
-            maxWidth: 30,
-            maxHeight: 'auto'
-        };
-    }
-
-    async componentDidMount() {
-        const url = 'https://api.punkapi.com/v2/beers/random';
-
-        await fetch(url)
-            .then(res => res.json())
-            .then((beers) => {
-                this.setState({ beers })
-            })
-            .catch(err => console.error(err))
-    }
+        this.state = { isPictureOn: true };
+    
+    };
 
     handleClick = () => {
-        //alert('card has been clicked');
-        console.log(this.state.beers.map((beer, i) => <p key={i}>{beer.description}</p>));
-       this.setState ((this.state.beers.map((beer, i) => <p key={i}>{beer.description}</p>)))
+        this.setState(state => ({
+            isPictureOn : !state.isPictureOn
+        }));
     };
 
     render() {
-        const { beers } = this.state;
         return (
-            <div>
-                {beers ? beers.map((beer, i) => <p key={i}>{beer.name}</p>) : null}
-                {beers ? beers.map((beer) => <
-                    img key={beer.id}
-                    onClick={this.handleClick}
-                    src={beer.image_url}
-                    alt="beer"
-                    style={this.getStyleImage()}
-                ></img>
-                ) : null}
-            </div>
-        )
+            <div className="beers" key={this.props.id} >
+                <div className="beerPic"> {this.state.isPictureOn ? <img src={this.props.pic} alt="beerpic" /> : <p>{this.props.desc}</p>}</div>
+                <div className="holder" onClick={this.handleClick}>
+                    <div className="beerName">{this.props.name}</div>
+                </div>
+            </div>)
     }
-}
+};
 
 export default Beer

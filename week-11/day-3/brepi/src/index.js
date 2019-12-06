@@ -1,40 +1,42 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
-import { Cards } from './Card'
+import './index.css';
+import { Beer } from './Beer'
 
 class Header extends Component {
-    getStyle = () => {
-        return {
-            border: '1px solid #F3F3F3'
-        };
+    constructor(props) {
+        super(props);
+        this.state = {};
     }
 
-    styleCards = () => {
-        return {
-            display: 'flex',
-            margin: 5,
-            justifyContent: 'space-between'
-        };
+    async componentDidMount() {
+        const url = 'https://api.punkapi.com/v2/beers?page=2&per_page=6';
+
+        await fetch(url)
+            .then(res => res.json())
+            .then((beers) => {
+                this.setState({ beers })
+            })
+            .catch(err => console.error(err))
     }
 
     render() {
         const companyName = 'Beerers'
+        const { beers } = this.state;
         return (
             <div
                 className="container"
-                style={this.getStyle()}>
+            >
                 <h1>{companyName}</h1>
-                <div>
-                    <div style={this.styleCards()}>
-                        <Cards />
-                        <Cards />
-                        <Cards />
-                    </div>
-                    <div style={this.styleCards()}>
-                        <Cards />
-                        <Cards />
-                        <Cards />
-                    </div>
+                <div className="allCards">
+                    {beers ? beers.map((item) =>
+                        <Beer
+                            id={item.id}
+                            name={item.name}
+                            pic={item.image_url}
+                            desc={item.description}
+                        />)
+                        : null}
                 </div>
             </div>
         );
