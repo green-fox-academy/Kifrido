@@ -17,8 +17,8 @@ export class Beer extends Component {
     render() {
         return (
             <div className="beers" key={this.props.id} >
-                <div className="beerPic"> {this.state.isPictureOn ? <img src={this.props.pic} alt="beerpic" /> : <p>{this.props.desc}</p>}</div>
-                <div className="holder" onClick={this.handleClick}>
+                <div className="beerPic" onClick={this.handleClick}> {this.state.isPictureOn ? <img src={this.props.pic} alt="beerpic" /> : <p>{this.props.desc}</p>}</div>
+                <div className="holder" >
                     <div className="beerName">{this.props.name}</div>
                 </div>
             </div>)
