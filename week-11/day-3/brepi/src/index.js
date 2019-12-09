@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
 import './index.css';
 import { Beer } from './Beer'
+import { Pagination } from './Pagination'
+
 
 class Header extends Component {
     constructor(props) {
@@ -38,6 +40,7 @@ class Header extends Component {
                         />)
                         : null}
                 </div>
+                <Pagination />
             </div>
         );
     }
